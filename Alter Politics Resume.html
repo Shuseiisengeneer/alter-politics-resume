@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>『Alter-Politics』序章 解説レジュメ</title>
+<style>
+:root {
+  --color-background-primary: #faf9f5;
+  --color-background-secondary: #f0ede3;
+  --color-background-tertiary: #e8e5d8;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #5F5E5A;
+  --color-text-tertiary: #888780;
+  --color-border-primary: rgba(0, 0, 0, 0.4);
+  --color-border-secondary: rgba(0, 0, 0, 0.25);
+  --color-border-tertiary: rgba(0, 0, 0, 0.13);
+  --font-sans: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --t: #5F5E5A;
+  --p: #1a1a1a;
+  --s: #5F5E5A;
+  --bg2: #f0ede3;
+  --b: rgba(0, 0, 0, 0.13);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1c1c1a;
+    --color-background-secondary: #2a2a28;
+    --color-background-tertiary: #333330;
+    --color-text-primary: #f0eee6;
+    --color-text-secondary: #b4b2a9;
+    --color-text-tertiary: #888780;
+    --color-border-primary: rgba(255, 255, 255, 0.4);
+    --color-border-secondary: rgba(255, 255, 255, 0.25);
+    --color-border-tertiary: rgba(255, 255, 255, 0.15);
+    --t: #b4b2a9;
+    --p: #f0eee6;
+    --s: #b4b2a9;
+    --bg2: #2a2a28;
+    --b: rgba(255, 255, 255, 0.15);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 2.5rem 1.5rem 4rem;
+  min-height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.t { font-size: 14px; fill: var(--color-text-primary); font-family: var(--font-sans); }
+.ts { font-size: 12px; fill: var(--color-text-secondary); font-family: var(--font-sans); }
+.th { font-size: 14px; font-weight: 500; fill: var(--color-text-primary); font-family: var(--font-sans); }
+.arr { stroke: var(--color-text-secondary); stroke-width: 1.5; fill: none; }
+.leader { stroke: var(--color-text-tertiary); stroke-width: 0.5; stroke-dasharray: 3 3; fill: none; }
+
+.c-gray rect, .c-gray circle, .c-gray ellipse { fill: #F1EFE8; stroke: #5F5E5A; }
+.c-gray .th { fill: #444441; }
+.c-gray .ts { fill: #5F5E5A; }
+.c-blue rect, .c-blue circle, .c-blue ellipse { fill: #E6F1FB; stroke: #185FA5; }
+.c-blue .th { fill: #0C447C; }
+.c-blue .ts { fill: #185FA5; }
+.c-purple rect, .c-purple circle, .c-purple ellipse { fill: #EEEDFE; stroke: #534AB7; }
+.c-purple .th { fill: #3C3489; }
+.c-purple .ts { fill: #534AB7; }
+.c-teal rect, .c-teal circle, .c-teal ellipse { fill: #E1F5EE; stroke: #0F6E56; }
+.c-teal .th { fill: #085041; }
+.c-teal .ts { fill: #0F6E56; }
+.c-coral rect, .c-coral circle, .c-coral ellipse { fill: #FAECE7; stroke: #993C1D; }
+.c-coral .th { fill: #712B13; }
+.c-coral .ts { fill: #993C1D; }
+.c-amber rect, .c-amber circle, .c-amber ellipse { fill: #FAEEDA; stroke: #854F0B; }
+.c-amber .th { fill: #633806; }
+.c-amber .ts { fill: #854F0B; }
+
+@media (prefers-color-scheme: dark) {
+  .c-gray rect, .c-gray circle, .c-gray ellipse { fill: #444441; stroke: #B4B2A9; }
+  .c-gray .th { fill: #F1EFE8; }
+  .c-gray .ts { fill: #D3D1C7; }
+  .c-blue rect, .c-blue circle, .c-blue ellipse { fill: #0C447C; stroke: #85B7EB; }
+  .c-blue .th { fill: #E6F1FB; }
+  .c-blue .ts { fill: #B5D4F4; }
+  .c-purple rect, .c-purple circle, .c-purple ellipse { fill: #3C3489; stroke: #AFA9EC; }
+  .c-purple .th { fill: #EEEDFE; }
+  .c-purple .ts { fill: #CECBF6; }
+  .c-teal rect, .c-teal circle, .c-teal ellipse { fill: #085041; stroke: #5DCAA5; }
+  .c-teal .th { fill: #E1F5EE; }
+  .c-teal .ts { fill: #9FE1CB; }
+  .c-coral rect, .c-coral circle, .c-coral ellipse { fill: #712B13; stroke: #F0997B; }
+  .c-coral .th { fill: #FAECE7; }
+  .c-coral .ts { fill: #F5C4B3; }
+  .c-amber rect, .c-amber circle, .c-amber ellipse { fill: #633806; stroke: #EF9F27; }
+  .c-amber .th { fill: #FAEEDA; }
+  .c-amber .ts { fill: #FAC775; }
+}
+
+.ap-wrap { max-width: 720px; margin: 0 auto; font-family: var(--font-sans); }
+.ap-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 12px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.ap-title { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
+.ap-counter { font-size: 13px; color: var(--color-text-secondary); font-variant-numeric: tabular-nums; }
+.ap-progress { display: flex; gap: 4px; margin-bottom: 1.5rem; }
+.ap-dot { flex: 1; height: 3px; background: var(--color-border-tertiary); border-radius: 2px; cursor: pointer; transition: background 0.2s; }
+.ap-dot.active { background: var(--color-text-primary); }
+.ap-dot.done { background: var(--color-text-secondary); }
+.ap-step { padding: 0.5rem 0 1rem; }
+.ap-step.hidden { display: none; }
+.ap-meta { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }
+.ap-section { font-size: 11px; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; font-weight: 500; }
+.ap-section-map { background: #F1EFE8; color: #444441; }
+.ap-section-q { background: #EEEDFE; color: #3C3489; }
+.ap-section-t { background: #FAEEDA; color: #633806; }
+.ap-section-c { background: #E1F5EE; color: #085041; }
+.ap-section-d { background: #FBEAF0; color: #72243E; }
+.ap-section-x { background: #FAECE7; color: #712B13; }
+.ap-section-g { background: #E6F1FB; color: #0C447C; }
+@media (prefers-color-scheme: dark) {
+  .ap-section-map { background: #2C2C2A; color: #D3D1C7; }
+  .ap-section-q { background: #26215C; color: #CECBF6; }
+  .ap-section-t { background: #412402; color: #FAC775; }
+  .ap-section-c { background: #04342C; color: #9FE1CB; }
+  .ap-section-d { background: #4B1528; color: #F4C0D1; }
+  .ap-section-x { background: #4A1B0C; color: #F5C4B3; }
+  .ap-section-g { background: #042C53; color: #B5D4F4; }
+}
+.ap-kicker { font-size: 12px; color: var(--color-text-secondary); letter-spacing: 0.05em; margin: 0; }
+.ap-h { font-size: 22px; font-weight: 500; margin: 0 0 16px; line-height: 1.4; }
+.ap-body { font-size: 15px; line-height: 1.8; color: var(--color-text-primary); margin: 0 0 1rem; }
+.ap-body-muted { font-size: 14px; line-height: 1.8; color: var(--color-text-secondary); margin: 0 0 1rem; }
+.ap-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px 20px; margin: 12px 0; }
+.ap-card-title { font-size: 13px; font-weight: 500; margin: 0 0 6px; color: var(--color-text-secondary); }
+.ap-card-body { font-size: 14px; line-height: 1.7; margin: 0; }
+.ap-quote { font-family: var(--font-serif); font-size: 15px; line-height: 1.9; padding: 14px 0 14px 18px; border-left: 2px solid var(--color-border-secondary); margin: 1.25rem 0; color: var(--color-text-primary); }
+.ap-quote-cite { display: block; font-family: var(--font-sans); font-size: 12px; color: var(--color-text-tertiary); margin-top: 8px; }
+.ap-fig { margin: 1.25rem 0; }
+.ap-fig svg { width: 100%; display: block; }
+.ap-hint { font-size: 12px; color: var(--color-text-tertiary); margin: 4px 0 8px; font-style: italic; }
+.ap-desc { margin-top: 10px; padding: 12px 16px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); font-size: 13px; line-height: 1.7; color: var(--color-text-secondary); min-height: 48px; transition: background 0.2s; }
+.hot { cursor: pointer; transition: opacity 0.2s; }
+.hot:hover { opacity: 0.78; }
+.ap-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 1.5rem; padding-top: 16px; border-top: 0.5px solid var(--color-border-tertiary); }
+.ap-qlist { margin: 12px 0 0; padding-left: 20px; }
+.ap-qlist li { font-size: 14px; line-height: 1.9; margin-bottom: 12px; }
+
+.ap-note { background: rgba(83, 74, 183, 0.06); border-radius: var(--border-radius-md); padding: 14px 18px 16px; margin: 1.25rem 0; }
+.ap-note-label { font-size: 11px; letter-spacing: 0.08em; color: #534AB7; font-weight: 500; margin: 0 0 10px; }
+.ap-note-q { font-size: 14px; font-weight: 500; line-height: 1.75; margin: 0 0 10px; color: var(--color-text-primary); }
+.ap-note-a { font-size: 14px; line-height: 1.85; margin: 0; color: var(--color-text-secondary); }
+.ap-note-qa { display: inline-block; min-width: 1.4em; font-weight: 500; color: #534AB7; }
+@media (prefers-color-scheme: dark) {
+  .ap-note { background: rgba(175, 169, 236, 0.09); }
+  .ap-note-label { color: #CECBF6; }
+  .ap-note-qa { color: #CECBF6; }
+}
+
+.ap-course { background: rgba(133, 79, 11, 0.06); border-radius: var(--border-radius-md); padding: 14px 18px 16px; margin: 1.25rem 0; border-left: 3px solid #B57414; }
+.ap-course-label { font-size: 11px; letter-spacing: 0.08em; color: #854F0B; font-weight: 500; margin: 0 0 6px; }
+.ap-course-source { font-size: 12px; color: #854F0B; font-weight: 500; margin: 0 0 10px; font-style: italic; }
+.ap-course-body { font-size: 14px; line-height: 1.85; margin: 0; color: var(--color-text-primary); }
+@media (prefers-color-scheme: dark) {
+  .ap-course { background: rgba(239, 159, 39, 0.09); border-left-color: #EF9F27; }
+  .ap-course-label { color: #FAC775; }
+  .ap-course-source { color: #FAC775; }
+}
+
+.ap-detail { margin: 1.5rem 0 0.5rem; padding: 0; }
+.ap-detail-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; font-size: 12px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); cursor: pointer; color: var(--color-text-secondary); font-family: inherit; transition: background 0.15s; }
+.ap-detail-toggle:hover { background: var(--color-background-tertiary, var(--color-background-secondary)); }
+.ap-detail-toggle .arrow { display: inline-block; transition: transform 0.2s; font-size: 10px; }
+.ap-detail.open .ap-detail-toggle .arrow { transform: rotate(90deg); }
+.ap-detail-body { display: none; margin-top: 14px; padding: 18px 22px 20px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border-left: 3px solid var(--color-border-secondary); }
+.ap-detail.open .ap-detail-body { display: block; }
+.ap-detail-body p { font-size: 14px; line-height: 1.95; margin: 0 0 14px; color: var(--color-text-primary); }
+.ap-detail-body p:last-child { margin-bottom: 0; }
+.ap-detail-body .src { font-size: 11px; color: var(--color-text-secondary); font-style: italic; margin-bottom: 12px; }
+.ap-detail-body .pull { background: rgba(133, 79, 11, 0.08); border-left: 2px solid #B57414; padding: 10px 14px; margin: 0 0 14px; font-size: 13px; line-height: 1.85; }
+.ap-detail-body .pull-cite { display: block; font-size: 11px; color: var(--color-text-secondary); margin-top: 4px; }
+@media (prefers-color-scheme: dark) {
+  .ap-detail-body .pull { background: rgba(239, 159, 39, 0.1); border-left-color: #EF9F27; }
+}
+
+.ap-presenter { display: none; margin: 1.5rem 0 0; padding: 18px 22px 20px 24px; background: #2a2a28; color: #f0eee6; border-radius: var(--border-radius-md); border-left: 4px solid #888780; }
+body.presenter-on .ap-presenter { display: block; }
+.ap-presenter-label { font-size: 11px; letter-spacing: 0.1em; color: #b4b2a9; margin: 0 0 14px; font-weight: 500; text-transform: uppercase; }
+.ap-presenter h4 { font-size: 13px; font-weight: 500; margin: 14px 0 6px; color: #f0eee6; letter-spacing: 0.02em; }
+.ap-presenter h4:first-of-type { margin-top: 0; }
+.ap-presenter p { font-size: 13px; line-height: 1.8; margin: 0 0 8px; color: #d3d1c7; }
+.ap-presenter ul { font-size: 13px; line-height: 1.8; margin: 0 0 8px; padding-left: 18px; color: #d3d1c7; }
+.ap-presenter ul li { margin-bottom: 4px; }
+.ap-presenter .q { color: #f0eee6; font-weight: 500; display: inline-block; margin-right: 4px; }
+.ap-presenter .a { color: #b4b2a9; }
+@media (prefers-color-scheme: dark) {
+  .ap-presenter { background: #1a1a18; }
+}
+
+button {
+  background: transparent;
+  border: 0.5px solid var(--color-border-secondary);
+  color: var(--color-text-primary);
+  padding: 8px 18px;
+  border-radius: var(--border-radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  min-width: 88px;
+}
+button:hover { background: var(--color-background-secondary); }
+button:active { transform: scale(0.98); }
+button:disabled { cursor: default; }
+</style>
+</head>
+<body>
+
+<h2 class="sr-only">『Alter-Politics』序章のインタラクティブ解説レジュメ。全体マップと8ステップで序章の議論を追う。</h2>
+
+<div class="ap-wrap">
+  <div class="ap-header">
+    <p class="ap-title">『Alter-Politics』序章 解説レジュメ</p>
+    <span class="ap-counter" id="ap-counter">1 / 10</span>
+  </div>
+
+  <div class="ap-progress" id="ap-progress">
+    <div class="ap-dot active" data-step="0"></div>
+    <div class="ap-dot" data-step="1"></div>
+    <div class="ap-dot" data-step="2"></div>
+    <div class="ap-dot" data-step="3"></div>
+    <div class="ap-dot" data-step="4"></div>
+    <div class="ap-dot" data-step="5"></div>
+    <div class="ap-dot" data-step="6"></div>
+    <div class="ap-dot" data-step="7"></div>
+    <div class="ap-dot" data-step="8"></div>
+    <div class="ap-dot" data-step="9"></div>
+  </div>
+
+  <div class="ap-step" data-step="0">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-map">概要</span>
+      <span class="ap-kicker">STEP 1 ／ 全体マップ</span>
+    </div>
+    <h3 class="ap-h">序章はどう流れていくのか</h3>
+    <p class="ap-body">この序章は大きく三つの動きで構成されている。最初に「問い」を立て、次に「理論」を組み立て、最後にそれを「事例」で検証する。各ステップを順に追えば、著者の思考の流れを追体験できる。</p>
+
+    <div class="ap-fig">
+      <p class="ap-hint">各パートに触れると、そこで何が扱われるか表示されます</p>
+      <svg viewBox="0 0 680 210" role="img">
+        <title>序章の議論の三つのパート</title>
+        <desc>問いの設定、理論的枠組み、事例の検証という三つの動きを横並びで示す</desc>
+        <defs>
+          <marker id="ap1-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g class="hot" data-desc="問いの設定：著者は本書を『批判の系譜』に連なるものとして位置づけ、中心的問い——抵抗と別のあり方をどう結びつけるか——を提示する。Step 2で扱う。">
+          <g class="c-purple">
+            <rect x="40" y="30" width="180" height="140" rx="12" stroke-width="0.5"/>
+            <text class="th" x="130" y="68" text-anchor="middle" dominant-baseline="central">問いの設定</text>
+            <text class="ts" x="130" y="98" text-anchor="middle" dominant-baseline="central">Step 2</text>
+            <text class="ts" x="130" y="128" text-anchor="middle" dominant-baseline="central">何を問うのか</text>
+          </g>
+        </g>
+        <line x1="223" y1="100" x2="247" y2="100" class="arr" marker-end="url(#ap1-arrow)"/>
+        <g class="hot" data-desc="理論的枠組み：アンチ・ポリティクスとオルター・ポリティクスの区別、抵抗の政治の歴史的弱み、政治的情熱という鍵概念——理論の道具立てが整えられるパート。Steps 3〜5で扱う。">
+          <g class="c-amber">
+            <rect x="250" y="30" width="180" height="140" rx="12" stroke-width="0.5"/>
+            <text class="th" x="340" y="68" text-anchor="middle" dominant-baseline="central">理論的枠組み</text>
+            <text class="ts" x="340" y="98" text-anchor="middle" dominant-baseline="central">Steps 3〜5</text>
+            <text class="ts" x="340" y="128" text-anchor="middle" dominant-baseline="central">どう考えるのか</text>
+          </g>
+        </g>
+        <line x1="433" y1="100" x2="457" y2="100" class="arr" marker-end="url(#ap1-arrow)"/>
+        <g class="hot" data-desc="事例の検証：オーストラリアのクロヌラ暴動と、イスラエル／パレスチナとの共通構造。理論的枠組みを具体的な場所で検証するパート。Steps 6〜7で扱う。">
+          <g class="c-teal">
+            <rect x="460" y="30" width="180" height="140" rx="12" stroke-width="0.5"/>
+            <text class="th" x="550" y="68" text-anchor="middle" dominant-baseline="central">事例の検証</text>
+            <text class="ts" x="550" y="98" text-anchor="middle" dominant-baseline="central">Steps 6〜7</text>
+            <text class="ts" x="550" y="128" text-anchor="middle" dominant-baseline="central">どこに適用するか</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="三つのパートの見出しに触れると、そのパートで何が扱われるか見られます。">三つのパートの見出しに触れると、そのパートで何が扱われるか見られます。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">序章の核心を一言で</p>
+      <p class="ap-card-body">抵抗するだけでは世界は変わらない。「別のあり方」を構想する政治が必要だ。しかもそれには、これまでとは異なる種類の政治的情熱が必要である。</p>
+    </div>
+
+    <p class="ap-body-muted">Step 8は議論のパート。各パートを通読したあとに論点を議論するための場です。上部のドットからいつでも任意のステップに飛べます。左右の矢印キーでも移動できます。</p>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>本日の全体時間配分（60分）</h4>
+      <p>解説45分・議論15分で進める。内訳の目安は以下。</p>
+      <ul>
+        <li>STEP 1（全体マップ）：3分</li>
+        <li>STEP 2（問い）：5分</li>
+        <li>STEP 3（二つの政治）：6分</li>
+        <li>STEP 4（抵抗の弱み）：5分</li>
+        <li>STEP 5（政治的情熱）：7分</li>
+        <li>STEP 6（クロヌラ）：6分</li>
+        <li>STEP 7（グローバル化）：8分</li>
+        <li>STEP 8（構成予告）：5分</li>
+        <li>解説小計：<strong>45分</strong></li>
+        <li>STEP 9（論点）：<strong>15分</strong>（論点2つ、1つあたり7分）</li>
+        <li>STEP 10（用語集）：スキップ、「気になったら見てください」と案内のみ</li>
+      </ul>
+      <h4>話す内容</h4>
+      <p>まず序章の全体構造を示します。「この序章は大きく三つの動きで構成されています。最初に『問い』を立て、次に『理論』を組み立て、最後にそれを『事例』で検証するという流れです。この三つを順番に追っていけば、著者の思考の流れをそのまま追体験できます」。図の三つのブロックを順に指し示しながら、各パートで何をやるかを一言ずつ紹介する。最後に「序章の核心を一言で」のカードを読み上げて締める。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「本を読んできていない人もいると思うので、まずこの全体の流れを頭に入れてから進めます。何か最初に質問はありますか？」と軽く確認してから次に進むと、参加者の緊張がほぐれる。</p>
+      <h4>時間の目安</h4>
+      <p>3分。ここは導入なので、あまり時間をかけすぎない。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="1">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-q">問い</span>
+      <span class="ap-kicker">STEP 2 ／ 著者は何を問うているのか</span>
+    </div>
+    <h3 class="ap-h">本書の立ち位置と中心的な問い</h3>
+    <p class="ap-body">本書は、資本主義と植民地主義に支配された世界秩序を批判する長い知的伝統に連なるものとして書かれている。著者はその系譜のなかに自分の仕事を位置づけることから、序章を始める。</p>
+
+    <div class="ap-quote">資本主義と植民地主義に飼いならされ、支配されてきた世界秩序を批判しようと試みてきた著作の長い歴史に、本書は連なっている。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">本書が連なる「批判の系譜」のイメージ</p>
+      <svg viewBox="0 0 680 160" role="img">
+        <title>批判の系譜と本書の位置</title>
+        <desc>資本主義と植民地主義への批判の長い歴史の末端に本書が位置する</desc>
+        <defs>
+          <marker id="ap2b-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <g class="hot" data-desc="長い批判の系譜：19世紀のマルクスに遡る資本主義批判、20世紀の反植民地思想、フェミニズム、批判的人類学など——本書はこれらの知的伝統のすべてに連なる。">
+          <g class="c-gray">
+            <rect x="40" y="50" width="420" height="60" rx="10" stroke-width="0.5"/>
+            <text class="th" x="250" y="76" text-anchor="middle" dominant-baseline="central">批判の系譜</text>
+            <text class="ts" x="250" y="94" text-anchor="middle" dominant-baseline="central">資本主義批判・反植民地思想・フェミニズム・批判的人類学…</text>
+          </g>
+        </g>
+
+        <line x1="463" y1="80" x2="497" y2="80" class="arr" marker-end="url(#ap2b-arrow)"/>
+
+        <g class="hot" data-desc="本書は『新しい主張』ではなく、長い批判の系譜の現代における継承者として自己定位する。これによって著者の議論は『歴史的蓄積の上に立つ』ものとして読者に提示される。">
+          <g class="c-purple">
+            <rect x="500" y="50" width="140" height="60" rx="10" stroke-width="0.5"/>
+            <text class="th" x="570" y="76" text-anchor="middle" dominant-baseline="central">本書</text>
+            <text class="ts" x="570" y="94" text-anchor="middle" dominant-baseline="central">2010年代</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="本書は孤立した新しい主張ではなく、長い批判の系譜のなかに自己定位する。">本書は孤立した新しい主張ではなく、長い批判の系譜のなかに自己定位する。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">中心的な問い</p>
+      <p class="ap-card-body">抵抗の政治（アンチ・ポリティクス）と、別のあり方を模索する政治（オルター・ポリティクス）を、どのように結びつけていくか。</p>
+    </div>
+
+    <p class="ap-body-muted">著者は後者を重視していることを率直に告白する。批判的人類学はもともと「別のあり方を想像する」営みと親和的であり、現状ではそちらに光が当たっていないからだと。</p>
+
+    <div class="ap-card">
+      <p class="ap-card-title">著者について</p>
+      <p class="ap-card-body">著者ガッサン・ハージはレバノン系オーストラリアの人類学者。1981年、シドニーのマッコーリー大学の大学院生だった頃は、自らを「ハードコアなマルクス主義者」と任じ、1970年代ヨーロッパの左翼テロリズムを研究していた。本書の議論は、その若き日からの距離化と問い直しの上に立っている。外からの評論ではなく、自らがかつて生きた立場への内在的な再考である。</p>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 p.17 ／ 序章冒頭の解説</p>
+        <div class="pull">
+          資本主義と植民地主義に飼いならされ、支配されてきた世界秩序を批判しようと試みてきた著作の長い歴史に、本書は連なっている。
+          <span class="pull-cite">── 本書 p.17</span>
+        </div>
+        <p>本書は、資本主義と植民地主義に支配されてきた世界秩序を批判してきた長い知的伝統に連なる本である。著者は冒頭でまず、本書がそうした「批判の系譜」の現代における継承者であることを宣言する。これは謙虚さの表明というより、「自分一人の思いつきではなく、歴史的蓄積の上に立っている」という読者への合図として読むべきだろう。</p>
+        <p>そのうえで本書の中心的な問いが提示される。著者の関心は、抵抗しようとすること（アンチ・ポリティクス）と、ありうべき別のあり方を模索すること（オルター・ポリティクス）を「どのように結び合わせていけるのか」という一点に向けられる。両者の二者択一ではなく、両者の結合こそが問題なのだ。</p>
+        <p>探求すべき「別のあり方」として、著者は三つの領域を明示する——別の経済、地球に暮らし関わりあう別のあり方、そして他者についての異なる思考と経験。とくに「地球に暮らし」という言い方が目を引く。これは単に人間社会の話ではなく、地球そのものを生きる場として捉え直す視点を含んでいる。後半で予告される「エコロジー政治」への伏線でもある。オルター・ポリティクスは抽象的な理念ではなく、具体的な生活と存在の領域に根ざしたものとして構想されている。</p>
+        <p>著者は同時に、自分の偏りも正直に告白する。両者を結び合わせると言いつつ、実はオルター・ポリティクスの側に力点を置いている、と。理由は二つあって、第一に批判的人類学という学問自体が「別のあり方を想像する」営みと親和的だから、第二に現状ではオルター側に光が当たっていないから。この慎重な自己開示が、読者との距離を縮めると同時に、議論の方向性をはっきりさせている。</p>
+      </div>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 著者は「オルター・ポリティクスに力点を置く」と言いながら、抵抗の政治を否定するわけではないとも言う。これって中立を装っているだけでは？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> 最初はそう感じた。でも読み返すと逆だと思えてきた。どちらかを選ぶのではなく、両者の関係そのものを問い直そうとしているのが著者の狙い。抵抗の情熱を否定してしまえば単なる現状肯定になるし、オルターだけを持ち上げれば「お花畑」になる。その間で踏みとどまろうとしているのだと読んだ。</p>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 著者がかつて自分を「ハードコアなマルクス主義者」だったと告白するのは、なぜだろう。ただの自伝にしては唐突に感じた。</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> これは単なる自己紹介ではなく、本書の立ち位置を示すための仕掛けだと読んだ。著者は「抵抗の政治の外から批判する人」ではなく、「かつて自分がそこにいた人」として語っている。だから本書の議論は冷たい評論ではなく、かつての自分との内在的な対話になっている——と解釈した。</p>
+    </div>
+
+    <div class="ap-course">
+      <p class="ap-course-label">授業との接続</p>
+      <p class="ap-course-source">→ 文化人類学各論I 25-1 イントロダクション</p>
+      <p class="ap-course-body">先生はイントロダクションで、現代人類学（第三期、1980-90年代以降）の核心を「現実批判」「オルタナティブな近代の在り方の模索」と特徴づけていた。これはハージの言う「オルター・ポリティクス」を別の言葉で言い直したものに近い。ハージのこの本は、まさにその第三期の人類学に身を置いている本として読める。冒頭の「人間や人間でないもの」という言及も、ラトゥールやデスコラといった存在論ブームの問題意識と直接つながっているはず。</p>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>「著者はまず本書を『批判の系譜』に連なるものとして自己定位します。これは謙虚さではなく、『自分一人の思いつきではなく、歴史的蓄積の上に立っている』という読者への合図です」。そのうえで、本書の中心的問いを提示する——アンチ・ポリティクスとオルター・ポリティクスをどう結びつけるか。最後に著者自身の立ち位置（レバノン系オーストラリア人・元マルクス主義者）に触れ、「だから本書の議論は外からの評論ではなく、内からの自己批判として書かれている」と説明する。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「『アンチ』と『オルター』って言葉、初めて聞く人も多いと思います。今の段階で、どっちがどっちかイメージつきますか？」と軽く確認して、ここで理解が追いついていない人を拾う。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「ハージって誰ですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">レバノンで生まれてオーストラリアに移住した人類学者です。代表作に『White Nation』という本があって、オーストラリアの白人ナショナリズムを人類学的に分析して有名になりました。この本もその延長線上にあります。</span></p>
+      <p><span class="q">Q.</span><span class="a">「批判的人類学って普通の人類学と何が違うんですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">普通の人類学が『異文化を記述する』ことを中心にしてきたのに対して、批判的人類学は『この秩序はこうでしかあり得ないのか』という問いを立てて、別のあり方を想像することを志向する流れです。</span></p>
+      <h4>時間の目安</h4>
+      <p>5分。著者紹介は長くなりすぎないように注意しつつ、批判の系譜の図と『問い』の提示はしっかり。</p>
+      <h4>授業との接続（先生に響かせる）</h4>
+      <p>著者紹介のあとに一言添える形が自然。「先生がイントロでおっしゃっていた『人類学の第三期＝オルタナティブな近代の在り方の模索』という枠組みを思い出しました。ハージのこの本は、まさにその第三期の人類学に身を置いている本だと感じます。冒頭の『人間や人間でないもの』という言及も、ラトゥールやデスコラといった存在論ブームの問題意識と直接つながっていますね」と話す。先生に「自分の授業全体とハージが噛み合っている」ことを気づかせる、最初のフックになる。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="2">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-t">理論</span>
+      <span class="ap-kicker">STEP 3 ／ 二つの政治</span>
+    </div>
+    <h3 class="ap-h">アンチ・ポリティクスとオルター・ポリティクス</h3>
+    <p class="ap-body">著者は政治を二つの方向に分ける。両者は対立するものではなく、本来は補い合うべきものだ。</p>
+
+    <div class="ap-fig">
+      <p class="ap-hint">図の要素にカーソルを合わせる／タップすると説明が出ます</p>
+      <svg viewBox="0 0 680 280" role="img">
+        <title>アンチとオルター、二つの政治の対比</title>
+        <desc>二つのボックスが並び、その間を結ぶ問いを示す</desc>
+        <defs>
+          <marker id="ap3-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g class="c-gray hot" data-desc="現状：資本主義と植民地主義に支配された世界秩序。著者はここを出発点として、二つの政治の可能性を考える。">
+          <rect x="240" y="24" width="200" height="44" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="46" text-anchor="middle" dominant-baseline="central">現状の世界秩序</text>
+        </g>
+        <line x1="340" y1="68" x2="340" y2="96" class="arr" marker-end="url(#ap3-arrow)"/>
+        <text class="ts" x="340" y="90" text-anchor="middle" dominant-baseline="central">これに対して</text>
+        <g class="c-coral hot" data-desc="アンチ・ポリティクス（抵抗の政治）。既存秩序に『ノー』と言う。反資本主義・反レイシズム・反植民地主義の闘争がこれにあたる。歴史的にはラディカルな政治の主役だった。">
+          <rect x="60" y="112" width="250" height="76" rx="10" stroke-width="0.5"/>
+          <text class="th" x="185" y="138" text-anchor="middle" dominant-baseline="central">アンチ・ポリティクス</text>
+          <text class="ts" x="185" y="158" text-anchor="middle" dominant-baseline="central">抵抗の政治</text>
+          <text class="ts" x="185" y="176" text-anchor="middle" dominant-baseline="central">「ノー」と言う</text>
+        </g>
+        <g class="c-teal hot" data-desc="オルター・ポリティクス（別のあり方の政治）。別の経済、別の共生のかたち、他者との別の関わり方を実際に構想し、試みる政治。著者はここに力点を置く。">
+          <rect x="370" y="112" width="250" height="76" rx="10" stroke-width="0.5"/>
+          <text class="th" x="495" y="138" text-anchor="middle" dominant-baseline="central">オルター・ポリティクス</text>
+          <text class="ts" x="495" y="158" text-anchor="middle" dominant-baseline="central">別のあり方の政治</text>
+          <text class="ts" x="495" y="176" text-anchor="middle" dominant-baseline="central">「こうもできる」と示す</text>
+        </g>
+        <line x1="185" y1="188" x2="300" y2="232" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 3" fill="none"/>
+        <line x1="495" y1="188" x2="380" y2="232" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 3" fill="none"/>
+        <g class="c-purple hot" data-desc="本書の中心的問い。『どちらか』ではなく『どう結びつけるか』。両者を対立させず、共存させる場を作ることが本書の仕事。">
+          <rect x="170" y="232" width="340" height="40" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="252" text-anchor="middle" dominant-baseline="central">本書の問い：どう結びつけるか</text>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="図の要素を選ぶと、ここに説明が表示されます。">図の要素を選ぶと、ここに説明が表示されます。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">「置き換える」ではなく「補う」</p>
+      <p class="ap-card-body">著者は抵抗の政治を否定しているわけではない。抵抗の情熱は必要だが、それだけでは足りない。オルター・ポリティクスによって「補う」必要がある。「置き換える」ではなく「補う」という言葉選びに、著者の慎重さが表れている。</p>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 pp.17-18 ／ 二つの政治の区別</p>
+        <p>本書の鍵概念であるアンチ・ポリティクスとオルター・ポリティクスの対比を整理しておく。アンチ・ポリティクスは抵抗の政治のことで、既存の秩序に「ノー」と言う政治を指す。反資本主義・反レイシズム・反植民地主義の闘争が典型で、歴史的にラディカルな政治的情熱の主役だった。一方オルター・ポリティクスは別のあり方を模索する政治で、別の経済、別の共生、他者との別の関わり方を構想し、試みる政治のこと。本書のタイトルそのものであり、著者はとくにこちらに力点を置く。</p>
+        <p>注意したいのは、著者にとって両者は対立するものではないという点だ。むしろ抵抗の政治が「補われなければならない」相手としてオルター・ポリティクスがあり、両者が結び合わさることで初めて新しい何かが生まれる、というのが本書のテーゼである。</p>
+        <p>言葉遣いに注目すると、著者は「置き換える」ではなく「補う」という動詞を選んでいる。これは慎重な選択だ。抵抗の政治を否定するわけではない、という著者の立場がここに表れている。「抵抗が過剰だから冷やしたい」のではなく、「歴史的に情熱が抵抗にばかり注がれてきた偏り」を直したい、というのが正確な読み方だろう。重心の移動ではなく、バランスの回復を目指す議論として受け取るべきである。</p>
+        <p>もうひとつ、ここで考えておきたいのは、「アンチとオルターは本当に分けられるのか」という問いだ。現実の運動では両者は絡み合っており、抵抗すること自体がすでに「別のあり方」を示していることもある。著者はそれを承知のうえで、あえて分析の道具として両者を区別している。区別できないものを「それでも分けて考える」ことで、情熱がどちらに偏っているかが見えてくる。これは分析上の操作として理解しておきたい。</p>
+      </div>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 「置き換える」ではなく「補う」という言葉選びが気になった。でも実質的には、オルター・ポリティクスを優位に置いているのではないか？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> たしかに著者の力点は明らかにオルター側にある。ただし、それは「抵抗が過剰だから冷やしたい」のではなく、「歴史的に情熱が抵抗にばかり注がれてきた偏り」を直したい、という話だと理解した。バランスを取り戻そうとする動きであって、重心の移動ではない。</p>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> アンチとオルターって、そもそも分けられるのか？ 現実の運動では、抵抗すること自体がすでに「別のあり方」を示していることもあるのでは？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> ここは自分も引っかかったところ。実際の運動では両者は絡み合っている。でも、分析のためにあえて分けて考えるという著者の操作には意味があると思った。区別できないものを「それでも分けて考える」ことで、情熱がどちらに偏っているかが見える——そういう分析上の道具として受け取ることにした。</p>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>このステップが本書の鍵概念の導入。アンチ・ポリティクスとオルター・ポリティクスの定義を明確に伝える。具体例があると分かりやすいので、「デモや抗議はアンチ・ポリティクスの典型で、協同組合やコミューンの実験はオルター・ポリティクスの例」と補足するとイメージが湧く。図を指しながら「でも著者はこの二つのどちらかを選べと言っているんじゃない。両者をどう結びつけるかを問題にしている」と強調する。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「デモに行ったことある人？」と軽く手を挙げてもらうと、雰囲気がほぐれる。そのうえで「デモは基本的に『ノー』と言う行為だけど、同時にそこに『こうなってほしい』という願いも含まれてますよね。でも著者は、この二つは違うんだ、と言ってるんです」と繋げる。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「結局オルターの方が大事ってことですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">著者の力点は明らかにオルター側にあります。ただし『抵抗が間違っている』と言っているわけではなく、『歴史的に情熱が抵抗に偏ってきたバランスを直したい』という話だと読むべきだと思います。</span></p>
+      <p><span class="q">Q.</span><span class="a">「抵抗しながら別のあり方を考えればいいのでは？」</span></p>
+      <p><span class="q">A.</span><span class="a">鋭い質問で、まさにそこが論点1にもつながります。著者はこの後の議論で、両者は単に同時にやればいいというものではなく、情熱の『質』そのものが違うんだ、と主張していきます。</span></p>
+      <h4>時間の目安</h4>
+      <p>6分。ここは時間をかけてよい。定義がぶれると後の議論がぶれる。具体例を1〜2個じっくり出して、参加者の頭にイメージを作る。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="3">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-t">理論</span>
+      <span class="ap-kicker">STEP 4 ／ 抵抗の政治の弱み</span>
+    </div>
+    <h3 class="ap-h">なぜ抵抗だけでは足りないのか</h3>
+    <p class="ap-body">1960年代以降、批判的な思想のなかで「抵抗の政治には根本的な弱みがあるのではないか」という実感が蓄積されてきた。これは著者個人の主張ではなく、左翼思想史全体の反省から生まれた問題意識である。</p>
+
+    <div class="ap-quote">抵抗している政治主体であったとしても、自らが愛した現実の別のあり方を、抵抗の政治はうまく構造に組み込むことができなかった。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <p class="ap-body">つまり、倒すことには成功しても、その後に「こうありたい」と願った社会を実現することには失敗してきた、ということ。</p>
+
+    <div class="ap-fig">
+      <p class="ap-hint">「希望」と「現実」それぞれの帯にカーソルを合わせてください</p>
+      <svg viewBox="0 0 680 260" role="img">
+        <title>希望と現実の対比</title>
+        <desc>抵抗の政治が思い描いた未来と、実際に起きた結末を二段で示す</desc>
+        <defs>
+          <marker id="ap4-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text class="ts" x="40" y="50" dominant-baseline="central">希望</text>
+        <g class="hot" data-desc="希望：既存秩序を倒せば、その先に『愛した別のあり方』が実現するはずだった。これが抵抗運動が抱いていた願いだった。">
+          <g class="c-teal">
+            <rect x="100" y="28" width="140" height="44" rx="8" stroke-width="0.5"/>
+            <text class="th" x="170" y="50" text-anchor="middle" dominant-baseline="central">抵抗</text>
+          </g>
+          <line x1="240" y1="50" x2="278" y2="50" class="arr" marker-end="url(#ap4-arrow)"/>
+          <g class="c-teal">
+            <rect x="280" y="28" width="140" height="44" rx="8" stroke-width="0.5"/>
+            <text class="th" x="350" y="50" text-anchor="middle" dominant-baseline="central">勝利</text>
+          </g>
+          <line x1="420" y1="50" x2="458" y2="50" class="arr" marker-end="url(#ap4-arrow)"/>
+          <g class="c-teal">
+            <rect x="460" y="28" width="180" height="44" rx="8" stroke-width="0.5"/>
+            <text class="th" x="550" y="50" text-anchor="middle" dominant-baseline="central">別のあり方の実現</text>
+          </g>
+        </g>
+        <line x1="80" y1="120" x2="640" y2="120" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="2 4"/>
+        <text class="ts" x="40" y="180" dominant-baseline="central">現実</text>
+        <g class="hot" data-desc="現実：『真のコミュニズムの実現』と呼ばれたものや、反植民地闘争を経て独立した社会の多く。抵抗は成功したが、その後にまた別の支配構造が生まれてしまった。">
+          <g class="c-coral">
+            <rect x="100" y="158" width="140" height="44" rx="8" stroke-width="0.5"/>
+            <text class="th" x="170" y="180" text-anchor="middle" dominant-baseline="central">抵抗</text>
+          </g>
+          <line x1="240" y1="180" x2="278" y2="180" class="arr" marker-end="url(#ap4-arrow)"/>
+          <g class="c-coral">
+            <rect x="280" y="158" width="140" height="44" rx="8" stroke-width="0.5"/>
+            <text class="th" x="350" y="180" text-anchor="middle" dominant-baseline="central">勝利</text>
+          </g>
+          <line x1="420" y1="180" x2="458" y2="180" class="arr" marker-end="url(#ap4-arrow)"/>
+          <g class="c-coral">
+            <rect x="460" y="158" width="180" height="44" rx="8" stroke-width="0.5"/>
+            <text class="th" x="550" y="180" text-anchor="middle" dominant-baseline="central">新しい支配構造</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="二つの帯を見比べると、著者の診断が見えてきます。">二つの帯を見比べると、著者の診断が見えてきます。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">歴史的な根拠</p>
+      <p class="ap-card-body">著者は具体例として「真のコミュニズムの実現」と「反植民地闘争を経て実現した社会」を挙げる。ソ連型社会主義の失敗、独立後の旧植民地での権威主義や内戦——倒すことには成功したが、その後が続かなかった歴史的経験の蓄積が、著者の問題意識の土台となっている。</p>
+    </div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">二つの歴史的経験に触れると、それぞれの詳細が見られます</p>
+      <svg viewBox="0 0 680 170" role="img">
+        <title>抵抗の政治が直面した二つの経験</title>
+        <desc>ソ連型社会主義と反植民地闘争という二つの歴史的経験</desc>
+
+        <g class="hot" data-desc="ソ連型社会主義:革命によって資本主義を倒したが、別の抑圧構造（党官僚制・秘密警察・一党独裁）が生まれ、1991年に崩壊した。『真のコミュニズム』は実現しなかった。">
+          <g class="c-coral">
+            <rect x="50" y="30" width="270" height="110" rx="10" stroke-width="0.5"/>
+            <text class="th" x="185" y="58" text-anchor="middle" dominant-baseline="central">ソ連型社会主義</text>
+            <text class="ts" x="185" y="82" text-anchor="middle" dominant-baseline="central">1917 革命で勝利</text>
+            <text class="ts" x="185" y="100" text-anchor="middle" dominant-baseline="central">↓</text>
+            <text class="ts" x="185" y="118" text-anchor="middle" dominant-baseline="central">別の抑圧構造へ</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="反植民地闘争:20世紀半ばに多くの植民地が独立を勝ち取ったが、独立後の多くで権威主義、内戦、新たな周縁化が起きた。植民地主義を倒した先にあったのは、期待された解放社会ではなかった。">
+          <g class="c-coral">
+            <rect x="360" y="30" width="270" height="110" rx="10" stroke-width="0.5"/>
+            <text class="th" x="495" y="58" text-anchor="middle" dominant-baseline="central">反植民地闘争</text>
+            <text class="ts" x="495" y="82" text-anchor="middle" dominant-baseline="central">20世紀半ば 独立達成</text>
+            <text class="ts" x="495" y="100" text-anchor="middle" dominant-baseline="central">↓</text>
+            <text class="ts" x="495" y="118" text-anchor="middle" dominant-baseline="central">権威主義・内戦</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="どちらも「勝利」したが、その先に『愛した別のあり方』は待っていなかった。">どちらも「勝利」したが、その先に『愛した別のあり方』は待っていなかった。</div>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 p.18 ／ 抵抗の政治の根本的な弱み</p>
+        <p>抵抗の政治は、根本的な弱みを抱えているのではないか——著者はこの問いを、自分一人の主張ではなく、1960年代以降のラディカル思想のなかで徐々に蓄積されてきた共通認識として提示する。重要なのは、これが個人の意見ではなく、左翼思想史全体の自己反省として位置づけられている点だ。</p>
+        <p>診断の中身を整理すると、こういうことになる。抵抗の政治は、ときに既存の政治秩序を覆すことに成功する。しかしその後、人々が「愛した別のあり方」を実際の社会構造に組み込むことには失敗してきた。結果として、既存秩序を倒した先に、また別の支配構造が生まれてしまう。著者はこのことを「抵抗の政治はうまく構造に組み込むことができなかった」と慎重な言い回しで述べている。</p>
+        <p>ここで注目したいのが「愛した現実の別のあり方」というフレーズだ。「理想」ではなく「愛した現実」と言われている点に意味がある。理想だとまだ実現していない空想の話になってしまうが、著者が言いたいのは、すでに断片的に存在していて、人々が実際に愛していたはずの別のあり方、というニュアンスだ。抵抗運動は、この「すでにある断片」を拾い上げて構造化することに失敗した、という診断なのだろう。</p>
+        <p>具体例として著者が挙げるのは、「真のコミュニズムの実現」と「反植民地闘争を経て実現した社会」の二つである。前者はソ連型社会主義の経験を、後者は独立後の旧植民地で繰り返された権威主義や内戦を指していると読める。倒すことには成功したが、その後が続かなかった——この歴史的経験の蓄積が、著者の問題意識の土台となっている。</p>
+        <p>注目すべきは、著者が「失敗」という強い言葉を避けて「うまく組み込むことができなかった」と書いている点だ。革命や独立戦争そのものを否定しているのではなく、その後の持続に失敗した、という慎重な診断である。同じく「置き換える」ではなく「補う」という言葉選びにも、抵抗を否定しないまま再考しようとする著者の姿勢が表れている。</p>
+        <p>さらに原文の続きでは、「同じように活気に満ちた情熱的な『別のあり方を模索する政治』への思考によって補われなければならず、そこから新たな存在のあり方の基盤が築かれる可能性が生じることが、次第に実感されてきた」と書かれている。著者にとって両者の結合は単なる加算ではなく、「新たな存在のあり方の基盤」が立ち上がる場所として捉えられている。これは後の章で「存在論的転回」と結びつくキーワードでもある。</p>
+      </div>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 「愛した現実の別のあり方」というフレーズが印象に残った。なぜ「理想」ではなく「愛した現実」なのだろう？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> 「理想」だとまだ実現していない空想の話になる。でも著者が言いたいのは、実はすでに断片的に存在していて、人々が実際に愛していたはずの別のあり方、というニュアンスだと読んだ。抵抗運動は、この「すでにある断片」を拾い上げ損ねたのだ、という診断なのだと思う。</p>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> コミュニズムや反植民地闘争を「失敗」と断じるのは、少し一方的ではないか？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> 著者は実際には「失敗」という強い言葉は使っていない。「愛した別のあり方を構造に組み込むことができなかった」と書いている。勝利そのものを否定するのではなく、その後の持続に失敗した、という慎重な言い方。この言葉選びには著者の冷静さが表れていると思う。</p>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>ここは「著者がなぜ抵抗だけでは不十分だと考えるようになったか」の歴史的背景を話すパート。「希望と現実」の図を使って、『抵抗→勝利→別のあり方の実現』というシナリオが、実際には『抵抗→勝利→新しい支配構造』になってしまった、という構造を視覚的に示す。具体例として、ソ連と独立後の旧植民地を挙げる。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「革命で勝ったのに、その後に別の抑圧が生まれた——って聞いて、どんな例を思い浮かべますか？」と問いかけると、参加者それぞれが持っている歴史知識が出てくる。フランス革命後の恐怖政治、ロシア革命後のスターリニズム、アルジェリアの独立戦争後の内戦など。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「じゃあ革命は意味がなかったってことですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">著者はそう言っていないし、私もそう読んでいません。著者の言い方は『愛した別のあり方を構造に組み込むことができなかった』です。つまり革命そのものを否定しているのではなく、その後の持続に失敗した、という慎重な診断です。</span></p>
+      <p><span class="q">Q.</span><span class="a">「『愛した現実の別のあり方』って何のことですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">私の読みでは、人々が実際に生きていて、断片的に愛していたはずの別の生き方のニュアンスだと思います。理想ではなく、すでに部分的に存在しているけれど周縁化されているもの。それを構造として定着させられなかったことが問題なんです。</span></p>
+      <h4>時間の目安</h4>
+      <p>5分。ここは具体例で時間を使える。ソ連と旧植民地の二つの例を図で示しつつ、参加者から別の歴史例も引き出せると議論が厚くなる。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="4">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-t">理論</span>
+      <span class="ap-kicker">STEP 5 ／ 政治的情熱という問い</span>
+    </div>
+    <h3 class="ap-h">情熱そのものの「質」を変える</h3>
+    <p class="ap-body">著者の診断はこうだ。歴史的に、ラディカルな政治的情熱は抵抗の政治にばかり注がれてきた。怒りと否定のエネルギーが左翼運動の原動力となってきた一方、「別のあり方」を構想し育てる側には、同じ熱量が注がれてこなかった。</p>
+
+    <p class="ap-body">ただし、著者は「オルター・ポリティクスにも同じ情熱を注げばよい」とは言わない。ここが重要なところだ。</p>
+
+    <div class="ap-quote">この情熱そのものが以前とは根本的に異なった政治的情熱でなければならないのである。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">左右のエネルギーと、中央の転換プロセスを触ってみてください</p>
+      <svg viewBox="0 0 680 260" role="img">
+        <title>二種類の政治的情熱</title>
+        <desc>抵抗の情熱と別のあり方への情熱を対比する</desc>
+        <defs>
+          <marker id="ap5-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g class="hot" data-desc="抵抗への情熱：怒り・否定・破壊のエネルギー。既存秩序を『倒す』ことに向かう情熱。歴史的にはラディカルな政治の主役だった。">
+          <g class="c-coral">
+            <rect x="40" y="50" width="200" height="140" rx="12" stroke-width="0.5"/>
+          </g>
+          <polygon points="90,160 120,90 140,130 170,80 200,160" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-linejoin="round"/>
+          <text class="th" x="140" y="210" text-anchor="middle" dominant-baseline="central">抵抗への情熱</text>
+          <text class="ts" x="140" y="228" text-anchor="middle" dominant-baseline="central">怒り・否定・破壊</text>
+        </g>
+        <g class="hot" data-desc="質の転換：単に量を増やすのではなく、情熱の種類そのものを変える必要がある。著者にとってこれが本書全体の鍵となる論点。">
+          <line x1="250" y1="120" x2="430" y2="120" class="arr" marker-end="url(#ap5-arrow)"/>
+          <text class="ts" x="340" y="108" text-anchor="middle" dominant-baseline="central">質の転換</text>
+          <text class="ts" x="340" y="138" text-anchor="middle" dominant-baseline="central">（量ではなく種類）</text>
+        </g>
+        <g class="hot" data-desc="別のあり方への情熱：構想し、育て、共に生きるエネルギー。抵抗とは異なる種類の政治的な力。これを育てることが本書の課題。">
+          <g class="c-teal">
+            <rect x="440" y="50" width="200" height="140" rx="12" stroke-width="0.5"/>
+          </g>
+          <path d="M540 165 Q540 135 520 120 Q540 100 560 120 Q540 135 540 165 Z M530 145 Q515 130 505 135 M550 145 Q565 130 575 135" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="540" y1="165" x2="540" y2="175" stroke="#1D9E75" stroke-width="1.5"/>
+          <text class="th" x="540" y="210" text-anchor="middle" dominant-baseline="central">別のあり方への情熱</text>
+          <text class="ts" x="540" y="228" text-anchor="middle" dominant-baseline="central">構想・育成・共生</text>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="二種類の情熱を並べることで、著者の主張が見えてきます。">二種類の情熱を並べることで、著者の主張が見えてきます。</div>
+    </div>
+
+    <p class="ap-body">この主張を支えるために、著者はフロイトのセクシュアリティ論を援用する。</p>
+
+    <div class="ap-quote">人間が大人らしく振る舞えるのはセクシュアリティがないからではなく、それを抑圧し、表現し、折り合いをつけているからである。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">フロイトから借りている構え</p>
+      <p class="ap-card-body">フロイトの革新は「セクシュアリティを消すべきもの」ではなく「人間存在に常に伴うもので、どう付き合うかが問題」と捉え直したことだった。著者はこの構えを政治的情熱にそのままスライドさせる。情熱は消すべきものではなく、どう関係を結ぶかの問題なのだ。近代政治思想が前提としてきた「理性 vs 情熱」という対立そのものを、著者は疑っている。</p>
+    </div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">フロイトの構えがどう政治に持ち込まれるかを示しています</p>
+      <svg viewBox="0 0 680 190" role="img">
+        <title>フロイトの構えを政治に持ち込む</title>
+        <desc>フロイトがセクシュアリティについて考えた方法を、著者は政治的情熱にスライドさせる</desc>
+        <defs>
+          <marker id="ap5b-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <g class="hot" data-desc="フロイトにとってセクシュアリティは『あるか/ないか』の問題ではなく、『どう付き合うか』の問題だった。抑圧・表現・昇華を通じて関係を結ぶ対象。">
+          <g class="c-amber">
+            <rect x="40" y="30" width="260" height="130" rx="12" stroke-width="0.5"/>
+            <text class="th" x="170" y="58" text-anchor="middle" dominant-baseline="central">フロイト</text>
+            <text class="ts" x="170" y="84" text-anchor="middle" dominant-baseline="central">セクシュアリティ</text>
+            <text class="ts" x="170" y="110" text-anchor="middle" dominant-baseline="central">消すのではなく</text>
+            <text class="ts" x="170" y="128" text-anchor="middle" dominant-baseline="central">折り合いをつける</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="著者はフロイトの『構え』——消去ではなく関係の結び方の問題——をそのまま政治理論にスライドさせる。これが本書の鍵となる論理的な動きである。">
+          <line x1="310" y1="95" x2="370" y2="95" class="arr" marker-end="url(#ap5b-arrow)"/>
+          <text class="ts" x="340" y="82" text-anchor="middle" dominant-baseline="central">同じ構えを</text>
+          <text class="ts" x="340" y="112" text-anchor="middle" dominant-baseline="central">スライド</text>
+        </g>
+
+        <g class="hot" data-desc="著者にとって政治的情熱もまた『あるか/ないか』ではなく『どう付き合うか』の問題。情熱を抑え込むのではなく、関係の結び方そのものを変える——これが『質を変える』の意味。">
+          <g class="c-purple">
+            <rect x="380" y="30" width="260" height="130" rx="12" stroke-width="0.5"/>
+            <text class="th" x="510" y="58" text-anchor="middle" dominant-baseline="central">著者</text>
+            <text class="ts" x="510" y="84" text-anchor="middle" dominant-baseline="central">政治的情熱</text>
+            <text class="ts" x="510" y="110" text-anchor="middle" dominant-baseline="central">消すのではなく</text>
+            <text class="ts" x="510" y="128" text-anchor="middle" dominant-baseline="central">関係を結び直す</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="フロイトの構えを政治的情熱にスライドさせる——これが著者の論理的な動き。">フロイトの構えを政治的情熱にスライドさせる——これが著者の論理的な動き。</div>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 pp.18-19, 22-23 ／ 政治的情熱という鍵概念</p>
+        <p>著者は本書で「政治的情熱」を中心概念のひとつに据える。診断はこうだ。歴史的に、ラディカルな政治的情熱はもっぱら抵抗の政治にばかり注がれてきた。怒り、反発、否定のエネルギーが左翼運動の原動力となってきた一方で、「別のあり方」を構想し育てる側には、同じだけの熱量が注がれてこなかった。だからオルター・ポリティクスは痩せ細ってきた、というわけだ。</p>
+        <p>ただし著者は、「ではオルターにも同じ情熱を注げばいい」という単純な解を先回りして拒否する。問題は量ではなく質である。情熱そのものが「以前そうであったのとは根本的に異なった政治的情熱」でなければならない、と著者は書く。</p>
+        <p>ではどう質を変えるのか。著者はここで意外な比喩を持ち出す。フロイトがセクシュアリティについて考察したのと同じように、政治について考えるべきだ、というのだ。フロイトの革新は、セクシュアリティを「消去すべきもの」と見るのではなく、「常に伴うもので、どう付き合うかが問題」と捉え直したことにあった。著者によれば、私たちが大人らしくいられるかどうかは、セクシュアリティをどれだけ繊細にそして強く抑圧し、表現し、飼いならせるかによって左右される。</p>
+        <p>注目すべきは、原文が「飼いならせる（tame）」という動詞を使っている点だ。セクシュアリティは消すのでも放置するのでもなく、繊細に強く扱い、関係を結ぶべき対象なのである。さらに原文は「私たち」を主語に置く。「人間が」ではなく「私たちが」と書くことで、著者自身も含めた一人称複数の経験として政治的情熱の問題を提示している。</p>
+        <p>この構えをそのまま政治に持ち込む。政治的情熱もまた、「ある／ない」の問題ではなく「どう関係を結ぶか」の問題だ。これが情熱の「質を変える」ということの中身である。成熟した政治主体とは、政治的情熱がない人ではない。政治的情熱と関係を結び、抑圧・表現・飼いならし・折り合いをつけている人である。</p>
+        <p>この比喩にはいくつかの重要な含意がある。第一に、情熱を消そうとしてはいけない、ということ。「冷静な議論だけでやろう」という立場への批判がここに含まれている。第二に、情熱は理性の反対語ではない、ということ。近代の政治思想が前提としてきた「理性 vs 情熱」という対立そのものを、著者はここで疑っている。第三に、政治の成熟とは情熱との関係の成熟である、ということ。「質を変える」とは、怒りを穏やかさに置き換えることでも、情熱を抑え込むことでもなく、情熱との関係の結び方そのものを変えることなのだ。</p>
+      </div>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 情熱の「質」を変えると言われても、正直まだピンとこない。具体的にどういうことなのだろう？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> 著者はここで具体例を出していないので、私も手がかりはフロイトの比喩しかなかった。フロイトが「セクシュアリティを消すのではなく、折り合いをつける」と言うのと同じで、政治的情熱も「消すでも置き換えるでもなく、関係の結び方を変える」ということだと自分は受け取った。つまり怒りを抑え込むのではなく、怒りのそばで別の感情の居場所を作るようなイメージ。</p>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> なぜここでフロイトを持ち出すのか。他の思想家ではダメなのか？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> フロイトの強みは「消去できないものと、どう付き合うか」という構えにあると思う。マルクス主義の「矛盾を消す」という発想とは対照的で、近代政治思想が前提にしてきた「理性 vs 情熱」の対立そのものを疑うための道具として、フロイトは都合がよかった。そう理解した。</p>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>このステップが序章のなかで一番難しい。でも重要。まず「抵抗の政治にばかり情熱が注がれてきた」という診断を押さえ、そのうえで「でもオルター・ポリティクスに同じ情熱を注げばいい、という単純な話じゃない」という著者のひねりを強調する。ここがポイント。量ではなく質の問題。そしてその質をどう考えるか、というところでフロイトが出てくる。フロイトの例は「セクシュアリティは消すものじゃなく、折り合いをつけるもの」という一点だけ押さえれば十分。深掘りは本論に譲る。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「フロイトが急に出てきて戸惑った人、いますか？」と聞くと、「はい」と手が挙がる可能性が高い。そのうえで「私も最初そう思ったけど、実はこれがかなり効いている比喩なんです」と導入して、自分なりの理解（情熱を消すのではなく関係を結び直す）を共有する。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「情熱の質を変えるって、具体的にはどうすることですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">これは私も引っかかったところで、序章の時点では具体例は出てきません。ただヒントはあって、『構想する』『育てる』『共存させる』といった動詞が使われています。怒りや破壊とは違う、創造や維持に関わるエネルギーへの転換だと私は読みました。</span></p>
+      <p><span class="q">Q.</span><span class="a">「フロイトって精神分析の人ですよね？政治と関係あるんですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">実は精神分析を政治理論に使う流れは昔からあります。マルクーゼとか、最近だとジジェクとか。著者もその系譜のなかにいます。ただ著者がフロイトから借りているのは精神分析の技法ではなく、『消去できないものとどう付き合うか』という構えそのものです。</span></p>
+      <h4>時間の目安</h4>
+      <p>7分。序章のなかで一番時間を使ってもよい。ここが理解できるかどうかで後の議論が変わる。『量ではなく質』と『フロイトの構え』の二つがキー。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="5">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-c">事例</span>
+      <span class="ap-kicker">STEP 6 ／ オーストラリア・クロヌラ暴動</span>
+    </div>
+    <h3 class="ap-h">マルワーンの語りから見えた構造</h3>
+    <p class="ap-body">2005年12月、シドニー郊外のクロヌラ・ビーチで大規模な人種暴動が起きた。数千人の白人の群衆がビーチに集まり、「中東系」と見なされた人々を襲撃した事件で、オーストラリア史上最大級の人種間暴動として記憶されている。SMSやラジオを通じた扇動があったことも後に明らかになっている。</p>
+
+    <p class="ap-body">著者は事件の直後、レバノン系オーストラリア人のマルワーンという男性にインタビューしている。事件の生々しさがまだ彼のなかに残っていた時期である。</p>
+
+    <div class="ap-quote">白人の群衆がレバノン系の若者たちを取り囲む光景が彼の記憶に強く残っており、それはまるで戦場のような感覚を伴っていた。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">中央の若者たち、外側の群衆、それぞれを触ってみてください</p>
+      <svg viewBox="0 0 680 260" role="img">
+        <title>クロヌラでの包囲の構図</title>
+        <desc>中央のレバノン系の若者たちを、外側から白人の群衆が取り囲む構図</desc>
+        <g class="hot" data-desc="外側を取り囲む白人の群衆。『ここは自分たちの場所だ』という単一文化主義的な主張が、身体的な包囲として現れた。">
+          <circle cx="340" cy="130" r="110" fill="none" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3 3"/>
+          <g fill="#D85A30">
+            <circle cx="340" cy="20" r="7"/>
+            <circle cx="400" cy="35" r="7"/>
+            <circle cx="450" cy="65" r="7"/>
+            <circle cx="480" cy="110" r="7"/>
+            <circle cx="480" cy="155" r="7"/>
+            <circle cx="455" cy="195" r="7"/>
+            <circle cx="400" cy="222" r="7"/>
+            <circle cx="340" cy="240" r="7"/>
+            <circle cx="280" cy="222" r="7"/>
+            <circle cx="225" cy="195" r="7"/>
+            <circle cx="200" cy="155" r="7"/>
+            <circle cx="200" cy="110" r="7"/>
+            <circle cx="225" cy="65" r="7"/>
+            <circle cx="280" cy="35" r="7"/>
+          </g>
+          <text class="ts" x="580" y="130" text-anchor="start" dominant-baseline="central" fill="#993C1D">白人の群衆</text>
+          <line x1="495" y1="130" x2="570" y2="130" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="3 3"/>
+        </g>
+        <g class="hot" data-desc="中央に取り囲まれたレバノン系の若者たち。マルワーンの記憶のなかで『まるで戦場のような感覚』として刻まれた。">
+          <g fill="#185FA5">
+            <circle cx="325" cy="118" r="7"/>
+            <circle cx="355" cy="120" r="7"/>
+            <circle cx="330" cy="142" r="7"/>
+            <circle cx="355" cy="145" r="7"/>
+          </g>
+          <text class="ts" x="100" y="130" text-anchor="end" dominant-baseline="central" fill="#0C447C">レバノン系の若者たち</text>
+          <line x1="105" y1="130" x2="310" y2="130" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="3 3"/>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="この構図そのものが、単一文化主義の政治を可視化しています。">この構図そのものが、単一文化主義の政治を可視化しています。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">結節点としてのマルワーンの語り</p>
+      <p class="ap-card-body">マルワーンは会話のなかで「シオニストの陰謀」についても語った。著者はこの語りを「正しい／間違い」で評価しない。注目したのは語りの中身ではなく、その語りを生み出している構造である。マルワーンの頭のなかでクロヌラの白人群衆とイスラエル国家が結びついている——この結びつきが、著者の分析の結節点となった。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">発見された概念：単一文化主義</p>
+      <p class="ap-card-body">イスラエル国家の政治とクロヌラの群衆は大きく異なるが、どちらも「単一文化主義」（ひとつの文化で社会を統一すべきだという発想）を強く主張している点で共通している。これが著者の診断である。</p>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 pp.25-27 ／ クラヌーラ暴動とマルワーンへのインタビュー</p>
+        <p>本書の鍵概念である「単一文化主義」を著者がはっきり意識し始めたのは、2006年初め、レバノン系オーストラリア人のマルワーンという男性へのインタビューの最中のことだった。それは2005年12月のクラヌーラ暴動が起きてしばらく経った頃のことである。本の翻訳では「クラヌーラ」と表記されている点に注意したい（一般的には「クロヌラ」と呼ばれることが多い）。</p>
+        <p>クラヌーラ暴動は、シドニー郊外のクラヌーラ・ビーチで起きた大規模な人種暴動である。SMSやラジオを通じた組織的扇動を背景に、人種差別的な白人の群衆が、レバノン風の容姿をした人々を取り囲み襲撃した。マルワーンの記憶には、その光景が「戦場の風景を見せられているかのような」感情とともに鮮明に残っていた。</p>
+        <p>会話のなかでマルワーンは、クラヌーラの暴動を「シオニストの陰謀」のせいにする発言をした。著者の分析的な操作はここで決定的である。著者は明確に、自分はその陰謀論を「まともに信じたわけではない」と書く。語りの真偽を判定するのではなく、その語りを生み出している構造に着目したのだ。さらに原文では、著者がこの発言を聞いて笑いをこらえきれず、それをマルワーンに咎められて反省するという、やや恥ずかしいエピソードも書かれている。</p>
+        <p>著者がそこに見出したのは、自分自身の主観的な想像のレベルでの「漠然とした類似性」だった。イスラエル国家がパレスチナ人に対して行う「包囲」と「攻撃」のイメージと、クラヌーラの群衆が孤立したレバノン系の男性を取り囲むイメージが、なぜか似ている——著者自身、原文のなかで「これでは社会科学的な根拠があまりにも薄弱だ」と認めている。それでも著者はこの違和感から出発して、本書全体を貫く「単一文化主義」という分析概念を育てていく。</p>
+        <p>この場面は、大きな理論がある具体的な経験への小さな違和感から育つ、典型的な民族誌的研究の思考過程を示している。会話の中の何気ない一言、表情、語り手の身振り——そういう細部から出発して、社会全体の構造への問いへと繋げていく。これは保苅実が『ラディカル・オーラル・ヒストリー』で示した方法論と同じ姿勢だ。語りの真偽を問わず、語りが何を生み出しているのか、語りの背後にはどんな構造があるのかを問う。</p>
+        <p>会話のなかでマルワーンは、報復行動、メディアの煽動、そしてアラン・ジョーンズ（過激な発言で知られるラジオ司会者）やピアース・アッカーマン（『デイリー・テレグラフ』のコラムニスト）といった右派メディアの存在についても話していた。著者はこの周辺の文脈も含めて、クラヌーラ暴動が単発の偶発事件ではなく、メディアによって日常的に醸成されていた言説の蓄積から生まれたものとして読んでいる。</p>
+      </div>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> マルワーンの「シオニストの陰謀」という語りを、著者はなぜ肯定も否定もしないのか？ ちょっとずるい気がした。</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> ずるいというより、方法論的な選択だと読んだ。人類学者は当事者の語りを「素材」として読むのであって、真偽判定は役割ではない。著者が注目するのは「なぜそう語らざるをえないか」という構造のほう。ただしこの距離感には倫理的な問題もあるとは思う。議論の余地がある。</p>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> クロヌラ暴動という一つの事件から、著者は大きすぎる結論を引き出していないか？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> これは自分も最初に感じた違和感。著者は一つの出来事を「兆候」として読んでいる。兆候は大きな構造を指し示すもの、という前提で議論が進むが、この読み方を受け入れるかどうかで著者への評価が分かれると思う。私はひとまず受け入れてみることにした。</p>
+    </div>
+
+    <div class="ap-course">
+      <p class="ap-course-label">授業との接続</p>
+      <p class="ap-course-source">→ 文化人類学各論I 25-3 文化的他者がみた歴史</p>
+      <p class="ap-course-body">ハージがマルワーンの「シオニストの陰謀」発言を扱う方法は、先生がオーラルヒストリーの回で紹介してくれた保苅実『ラディカル・オーラル・ヒストリー』のグリンジ族研究の方法論と同じだと感じた。グリンジの人々が「大蛇が大地を罰した」と語るのを「真偽」で判断するのではなく、「事実確認的（constative）／行為遂行的（performative）」「発話位置（speaking position）」から理解する——ハージはマルワーンの語りに対してまさにこの操作をしている。語りの真偽を問わず、「なぜそう語らざるを得なかったのか」という構造への問いに変換しているのだ。先生が授業で繰り返し説いてきた方法論が、ハージの読みのなかにそのまま生きている。</p>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>ここは抽象的な理論から具体的な事例へのギアチェンジ。まずクロヌラ暴動そのものの背景を簡単に説明する（2005年12月、シドニー郊外のビーチ、数千人の白人群衆、SMSやラジオの扇動）。そのうえで、著者はこの事件を直接研究するのではなく、当事者のマルワーンへのインタビューから始めている、という点に注意を向ける。包囲の図を使って『戦場のような感覚』という経験を想像させる。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「ビーチで数千人の群衆に囲まれる——これを想像できますか？」と一呼吸置くと、参加者が追体験する時間になる。そのうえで「マルワーンがこの経験を語るときに、なぜかシオニストの話が出てきた。著者はこれを重要な手がかりとして扱います」と続ける。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「マルワーンの『シオニストの陰謀』って、本当なんですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">著者は真偽判定をしていません。面白いのは、著者が『マルワーンが語ったこと』ではなく『マルワーンがそう語らざるをえなかった構造』の方に注目しているところです。人類学的な読み方ですね。</span></p>
+      <p><span class="q">Q.</span><span class="a">「クロヌラ暴動って、今も続いているんですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">事件そのものは2005年の一連の出来事ですが、著者はこれを『終わった事件』ではなく、西洋社会の単一文化主義を可視化する兆候として扱っています。つまり構造の問題は今も続いている、という前提で読むのがいいと思います。</span></p>
+      <h4>時間の目安</h4>
+      <p>6分。具体事例なので話しやすいが、包囲の経験の描写は急がずに。クロヌラ暴動の背景を知らない人もいるので丁寧に。</p>
+      <h4>授業との接続（先生に響かせる｜★最強）</h4>
+      <p>これは今日の発表のなかで一番効く可能性が高い接続。マルワーンの「シオニスト陰謀」の話をしたあとに切り出すのが自然。「マルワーンの発言をハージが扱う方法を読んだとき、先生がオーラルヒストリーの回で紹介してくれた保苅実さんのグリンジ族研究を思い出しました。ハージはマルワーンの語りの真偽を問わず、発話位置と構造への問いに変換しています。これは保苅さんの『事実確認的ではなく行為遂行的に読む』姿勢と同じだと感じました」と話す。先生がずっと教えてきた方法論を、学生がハージのなかに自力で見つけたという発見の喜びを先生に共有する場面になる。確実に唸る。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="6">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-c">事例</span>
+      <span class="ap-kicker">STEP 7 ／ 植民地主義のグローバル化</span>
+    </div>
+    <h3 class="ap-h">共通構造と9.11以降の想像力</h3>
+    <p class="ap-body">著者はマルワーンの語りから発見した共通構造を、一気に西洋全体の政治動向へと接続する。二〇世紀末以降、西洋では白人ナショナリズムの新しい波が広がり、反多文化主義の政治が台頭した。</p>
+
+    <p class="ap-body">ここで著者は挑発的な主張を投げる。イスラエルはこの流れの例外ではなく、むしろ西洋の反多文化主義勢力にとっての「模範」となった、というのだ。特定の民族集団を中心とした国家の運営、「他者」の排除、境界の強化——これらを実践する成功例として、イスラエルは参照されるようになった。</p>
+
+    <div class="ap-quote">イスラエル国家の政治とクロヌラの群衆は大きく異なるが、どちらも単一文化主義を強く主張している点では共通している。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">二本の柱と、それを支える土台を触ってみてください</p>
+      <svg viewBox="0 0 680 280" role="img">
+        <title>二つの事例と共通の土台</title>
+        <desc>オーストラリアとイスラエル／パレスチナという二本の柱が、共通の土台である植民地主義と単一文化主義の上に立っている</desc>
+        <g class="hot" data-desc="オーストラリア。先住者を排除して成立した入植者植民地としての歴史を持ち、白人ナショナリズムと単一文化主義が現代の表れとなっている。">
+          <g class="c-blue">
+            <rect x="90" y="30" width="220" height="90" rx="10" stroke-width="0.5"/>
+            <text class="th" x="200" y="62" text-anchor="middle" dominant-baseline="central">オーストラリア</text>
+            <text class="ts" x="200" y="84" text-anchor="middle" dominant-baseline="central">クロヌラ暴動</text>
+            <text class="ts" x="200" y="102" text-anchor="middle" dominant-baseline="central">白人ナショナリズム</text>
+          </g>
+        </g>
+        <g class="hot" data-desc="イスラエル／パレスチナ。こちらも入植者植民地としての歴史を持ち、単一文化主義を強く主張する国家として、西洋の反多文化主義勢力の『模範』となった。">
+          <g class="c-blue">
+            <rect x="370" y="30" width="220" height="90" rx="10" stroke-width="0.5"/>
+            <text class="th" x="480" y="62" text-anchor="middle" dominant-baseline="central">イスラエル／パレスチナ</text>
+            <text class="ts" x="480" y="84" text-anchor="middle" dominant-baseline="central">植民状況</text>
+            <text class="ts" x="480" y="102" text-anchor="middle" dominant-baseline="central">単一文化主義の国家</text>
+          </g>
+        </g>
+        <line x1="200" y1="120" x2="200" y2="170" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 3"/>
+        <line x1="480" y1="120" x2="480" y2="170" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 3"/>
+        <g class="hot" data-desc="共通の土台：入植者植民地としての歴史（先住者を排除することで成立した社会）と、単一文化主義。9.11以降はさらに『共通の敵』の想像力が広がり、両事例は接続された。">
+          <g class="c-purple">
+            <rect x="60" y="170" width="560" height="76" rx="10" stroke-width="0.5"/>
+            <text class="th" x="340" y="196" text-anchor="middle" dominant-baseline="central">共通の土台</text>
+            <text class="ts" x="340" y="218" text-anchor="middle" dominant-baseline="central">入植者植民地の歴史／単一文化主義</text>
+            <text class="ts" x="340" y="236" text-anchor="middle" dominant-baseline="central">9.11以降の「共通の敵」の想像力</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="この共通構造こそ、著者が『植民地主義のグローバル化』と呼ぶもの。">この共通構造こそ、著者が『植民地主義のグローバル化』と呼ぶもの。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">9.11という転換点</p>
+      <p class="ap-card-body">9.11以前、イスラエルと西洋諸国の関係は複雑だった。しかし同時多発テロを境に、西洋諸国はイスラエルとともに「共通の敵」を想定するようになる。「対テロ戦争」の名のもとに、イスラエルの対パレスチナ政策と西洋の対イスラム政策は同じ論理で結ばれていった。</p>
+    </div>
+
+    <div class="ap-quote">パレスチナ人、イスラム世界、そして西洋社会の内部にいる「他者」が同一視される想像力が広がったのである。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">9.11以前・9.11そのもの・9.11以後、それぞれを触ってみてください</p>
+      <svg viewBox="0 0 680 240" role="img">
+        <title>9.11を境にした想像力の変化</title>
+        <desc>9.11以前は三つに分かれていた他者のカテゴリーが、9.11以後は区別されず一つに溶け合う想像力</desc>
+        <defs>
+          <marker id="ap7b-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <text class="ts" x="155" y="28" text-anchor="middle" dominant-baseline="central">9.11以前</text>
+        <g class="hot" data-desc="9.11以前：パレスチナ人、イスラム世界、西洋内部の『他者』は、人々の想像力のなかで別々のカテゴリーとして認識されていた。それぞれに対する政治的反応も、異なる文脈で語られていた。">
+          <g class="c-gray">
+            <rect x="40" y="54" width="230" height="40" rx="8" stroke-width="0.5"/>
+            <text class="ts" x="155" y="74" text-anchor="middle" dominant-baseline="central">パレスチナ人（境界の外の敵）</text>
+          </g>
+          <g class="c-gray">
+            <rect x="40" y="108" width="230" height="40" rx="8" stroke-width="0.5"/>
+            <text class="ts" x="155" y="128" text-anchor="middle" dominant-baseline="central">イスラム世界（遠い他者）</text>
+          </g>
+          <g class="c-gray">
+            <rect x="40" y="162" width="230" height="40" rx="8" stroke-width="0.5"/>
+            <text class="ts" x="155" y="182" text-anchor="middle" dominant-baseline="central">西洋内部の「他者」</text>
+          </g>
+        </g>
+        <g class="hot" data-desc="9.11という転換点。この日を境に、西洋諸国は『対テロ戦争』の名のもとに共通の敵を想定するようになる。三つのカテゴリーを貫く単一の想像力が台頭した。">
+          <line x1="290" y1="128" x2="390" y2="128" class="arr" marker-end="url(#ap7b-arrow)"/>
+          <text class="th" x="340" y="112" text-anchor="middle" dominant-baseline="central">9.11</text>
+          <text class="ts" x="340" y="148" text-anchor="middle" dominant-baseline="central">を境に</text>
+        </g>
+        <text class="ts" x="520" y="28" text-anchor="middle" dominant-baseline="central">9.11以後</text>
+        <g class="hot" data-desc="9.11以後：三つのカテゴリーが想像力のなかで溶け合い、区別されなくなる。境界の外の『敵』と、内部の『他者』とが同じものとして扱われる。この変化こそ、クロヌラの群衆がレバノン系の若者を攻撃することを可能にした条件だった。">
+          <g class="c-coral">
+            <rect x="400" y="54" width="240" height="148" rx="10" stroke-width="0.5"/>
+            <text class="th" x="520" y="108" text-anchor="middle" dominant-baseline="central">同一化された他者</text>
+            <text class="ts" x="520" y="136" text-anchor="middle" dominant-baseline="central">境界の外と内側が</text>
+            <text class="ts" x="520" y="156" text-anchor="middle" dominant-baseline="central">区別されなくなる</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="三つの別々のカテゴリーが、一つの『他者』へと溶け合っていく。これが著者が注目する『想像力の変化』です。">三つの別々のカテゴリーが、一つの『他者』へと溶け合っていく。これが著者が注目する『想像力の変化』です。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">想像力の変化という鍵</p>
+      <p class="ap-card-body">ここで著者が注目するのは、具体的な政策ではなく人々の「想像力」である。境界の外の『敵』と、内部の『他者』とが頭のなかで溶け合い、区別されなくなっていった。この想像力の変化こそが、クロヌラの群衆がレバノン系の若者たちを攻撃することを可能にした条件なのだ。</p>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 pp.27-30 ／ 単一文化主義と「白人入植者状況のグローバル化」</p>
+        <p>ここで分析のスケールが一気に拡大する。マルワーンとの個人的なインタビューから、20世紀末以降の西洋政治全体の地殻変動へと議論が移る。</p>
+        <p>著者は20世紀末を、「白人のパラノイア・ナショナリズムの新たな波が拡大する」時代として描く。1970〜80年代以降に台頭した、多文化主義への反動としての新種のナショナリズムである。具体的には、ヨーロッパの極右政党、アメリカの反移民運動、オーストラリアのワン・ネイション党などがその例である。著者がここで「パラノイア（被害妄想的）」という形容を使う点が重要で、これは前著『Against Paranoid Nationalism』のキー概念でもあった。</p>
+        <p>このブロックで最も挑発的な主張は、「イスラエルが西洋の特定の支配的勢力にとって、潜在意識のうえでは『お手本』とみなされるようになった」というものだ。通常イスラエルは中東という特殊な地政学的文脈で語られるが、著者はこの枠組みを外す。イスラエルは中東の例外ではなく、西洋の単一文化主義的勢力にとっての手本になった、というのである。</p>
+        <p>原文では、その「お手本」となるイスラエルのエートスが、ひとつのフレーズに集約されている——「私たちをやっつけようとする野蛮人に包囲されているのだから、私たちは政治的・軍事的・文化的に自己主張する必要がある」。著者によれば、このエートスが20世紀末以降、西洋全体の自己規定として一般化され、真剣に受け止められはじめた。これを著者は「白人入植者状況のグローバル化」と呼ぶ。</p>
+        <p>この主張を支える土台として著者が挙げるのが「植民地社会としての歴史の共有」である。オーストラリア、カナダ、アメリカ、ニュージーランド、そしてイスラエルは、すべて「入植者植民地」として始まった国々である。ヨーロッパ人あるいはユダヤ人が入植し、先住民族を排除しながら作り上げた社会である。表面的にはそれぞれ異なる歴史を歩んできたが、土台には「先住者を排除することで成立した」という共通の記憶がある。</p>
+        <p>決定的だったのは、9・11、バリ島、マドリード、ロンドンと続いた一連の爆弾テロである。これらの事件を境に、まったく異なる三種類の「ムスリム」——パレスチナの抵抗運動、9・11の実行犯、クラヌーラのビーチで遊ぶレバノン系オーストラリア人の若者——が、「グローバルな西洋の想像力のなかで」共通したものとして括られていく。この同一視こそが、クラヌーラの群衆の襲撃を可能にした条件である。</p>
+        <p>ここで「想像力（imagination）」という言葉の意味を確認しておきたい。著者にとって想像力は、個人の偏見ではなく、社会全体で共有されている認識の枠組みのことだ。重要なのは、これが行動の結果ではなく前提として働いているという点である。迫害が起きるから他者が同一視されるのではなく、すでに同一視されているから迫害が可能になる、という順序だ。だからこそ著者は、政策や制度ではなく想像力のレベルで議論を組み立てている。法律を変えても想像力の土壌が変わらなければ、また別の形で同じことが繰り返されるからである。</p>
+      </div>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 「イスラエルは西洋の反多文化主義勢力の模範」という主張はかなり挑発的。序章の時点でここまで言い切っていいのだろうか？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> 序章は「挑発的な仮説の提示」の段階で、本格的な裏付けは本論に譲られていると読んだ。だから序章を読んだ時点では「こういう見方もあるのか」と受け取って、本論でどう裏付けるかを見ていきたい。ここで拒絶すると本書の議論に入っていけなくなる。</p>
+    </div>
+
+    <div class="ap-note">
+      <p class="ap-note-label">担当者メモ</p>
+      <p class="ap-note-q"><span class="ap-note-qa">Q</span> 「想像力の変化」が政治の鍵だと言われると、やや抽象的に感じる。具体的な政策や制度のほうが重要では？</p>
+      <p class="ap-note-a"><span class="ap-note-qa">A</span> 著者はむしろ、政策や制度の背後にある想像力こそが決定的だと考えていると思う。政策は想像力の結果であって原因ではない、という発想。クロヌラの群衆がレバノン系の若者を攻撃できたのは、具体的な法律があったからではなく、想像力のなかで「敵」のカテゴリーが作られていたから——という読み方は、この立場から来ている。</p>
+    </div>
+
+    <div class="ap-course">
+      <p class="ap-course-label">授業との接続</p>
+      <p class="ap-course-source">→ 文化人類学各論I 25-3③ 文化的他者がみた歴史3</p>
+      <p class="ap-course-body">先生はグリンジの長老ジャッキー・パンダマラの分析を紹介するなかで、ベイン・アトウッドの「アボリジニ概念とイギリス人概念は同時に構築された」という議論に触れていた。「反植民地主義的実践のなかの『ヨーロッパ人の形成』」という言い方も印象的だった。ハージがオーストラリア（白人ナショナリズム）とイスラエル（シオニズム）の並置で扱っているのも、まさにこの構造ではないか。「他者」を排除することで「われわれ」が立ち上がる——その構造をハージは「単一文化主義」と呼んでいる。先生の授業ではアボリジニ／イギリス人の関係で語られていたことが、ハージではより広いスケール（西洋全体と非西洋）で反復されていると感じた。</p>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>ここは序章のなかで一番密度が高く、挑発的なパート。スケールの拡大に注意して話す——『一人のマルワーン → クロヌラの群衆 → 西洋全体 → 9.11後の世界』と、ミクロからマクロへ一気に飛ぶ。『共通の土台』の図と『想像力の変化』の図、二つの図を行き来しながら説明するとわかりやすい。『イスラエルが西洋の模範になった』という主張はかなり挑発的なので、慎重に扱う。「これは序章の時点では挑発的な仮説として提示されていて、本論で裏付けられる前提で聞いてください」と一言添えるとよい。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「9.11以降、何かが変わったと感じた経験はありますか？」と広く聞く。当時を覚えていない参加者もいるかもしれないので、「たとえば空港のセキュリティとか、ムスリムへの視線とか」と補助する。そのうえで「著者は、この変化を『政策』の話じゃなくて『想像力』の話として捉えるんです」と繋げる。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「『イスラエルが西洋の模範』って、さすがに言いすぎでは？」</span></p>
+      <p><span class="q">A.</span><span class="a">私も最初はそう感じました。ただ、序章は『挑発的な仮説の提示』の段階で、具体的な裏付けは本論に譲られているようです。ここで拒絶すると本書の議論に入っていけなくなるので、私は『こういう見方もあるのか』と受け取ることにしました。</span></p>
+      <p><span class="q">Q.</span><span class="a">「『想像力』って、要するに偏見とかステレオタイプってこと？」</span></p>
+      <p><span class="q">A.</span><span class="a">近いけど、もう少し広いです。著者が使っているのは人類学的な意味での『想像力』で、ベネディクト・アンダーソンの『想像の共同体』以降、ナショナリズム研究の中心概念になっています。個人の偏見ではなく、社会全体で共有される認識の枠組みのことだと理解するといいと思います。</span></p>
+      <p><span class="q">Q.</span><span class="a">「『入植者植民地』って聞き慣れない言葉だけど、何ですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">単に領土を支配するだけの植民地主義と区別される概念で、『先住者を置き換えることを目指す』タイプの植民地主義のことです。オーストラリア、アメリカ、カナダ、ニュージーランド、そしてイスラエルがこの類型に入ります。著者が二つの事例を並べる理論的根拠です。</span></p>
+      <h4>時間の目安</h4>
+      <p>8分。序章のなかで一番時間を使うパート。二つの図（共通の土台と想像力の変化）があるので、行き来しながら丁寧に。挑発的な主張が多いので、参加者の反応を見ながら。</p>
+      <h4>授業との接続（先生に響かせる）</h4>
+      <p>「単一文化主義」の説明をしたあとに切り出すのが自然。「文化的他者がみた歴史の回で、先生が紹介していた『アボリジニ概念とイギリス人概念は同時に構築された』というアトウッドの議論を思い出しました。ハージがオーストラリアとイスラエルで扱っているのも、構造としては同じだと思います。『他者』を排除することで『われわれ』が立ち上がる——その構造をハージは『単一文化主義』と呼んでいるんですね」と話す。授業のスケール（アボリジニとイギリス人）から、ハージの広いスケール（西洋全体と非西洋）への接続を示せる。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="7">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-x">予告</span>
+      <span class="ap-kicker">STEP 8 ／ 本書の構成予告</span>
+    </div>
+    <h3 class="ap-h">序章のあとに何が続くのか</h3>
+    <p class="ap-body">序章の締めくくりとして、著者は本書全体の見取り図を提示する。序章は本書全体の圧縮版として機能している。ここまで見てきた論点が、本論でどの順に展開されるのかを示す部分だ。</p>
+
+    <div class="ap-quote">本書の第一部では、こうした植民状況のグローバル化の特徴を分析する。第二部では危機の経験がどのように変化してきたのかを検討する。第三部では対抗的政治と別のあり方を模索する政治をどのように結びつけるかを論じる。<span class="ap-quote-cite">── 本文より</span></div>
+
+    <div class="ap-fig">
+      <p class="ap-hint">三つの部と、それぞれに紐づく序章の論点に触れてみてください</p>
+      <svg viewBox="0 0 680 320" role="img">
+        <title>本書の三部構成と序章の論点の対応関係</title>
+        <desc>第一部から第三部までの内容と、序章で提示された論点がどこで展開されるか</desc>
+
+        <g class="hot" data-desc="第一部：植民状況のグローバル化の分析。STEP 7（植民地主義のグローバル化）で提示された共通構造や9.11以降の想像力の変化が、ここで本格的に展開される。">
+          <g class="c-blue">
+            <rect x="40" y="30" width="200" height="80" rx="10" stroke-width="0.5"/>
+            <text class="th" x="140" y="56" text-anchor="middle" dominant-baseline="central">第一部</text>
+            <text class="ts" x="140" y="78" text-anchor="middle" dominant-baseline="central">植民状況のグローバル化</text>
+            <text class="ts" x="140" y="96" text-anchor="middle" dominant-baseline="central">← STEP 6〜7 の展開</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="第二部：危機の経験の変化。序章ではほぼ触れられていない新しい論点。9.11以降、『危機』が例外的な出来事ではなく日常の感覚そのものになっていることを扱うパートだと予告されている。">
+          <g class="c-amber">
+            <rect x="240" y="30" width="200" height="80" rx="10" stroke-width="0.5"/>
+            <text class="th" x="340" y="56" text-anchor="middle" dominant-baseline="central">第二部</text>
+            <text class="ts" x="340" y="78" text-anchor="middle" dominant-baseline="central">危機の経験の変化</text>
+            <text class="ts" x="340" y="96" text-anchor="middle" dominant-baseline="central">← 新しい論点</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="第三部：二つの政治をどう結びつけるか。序章全体の中心的な問い——アンチ・ポリティクスとオルター・ポリティクスの関係——が、本書の理論的クライマックスとして正面から論じられる。">
+          <g class="c-teal">
+            <rect x="440" y="30" width="200" height="80" rx="10" stroke-width="0.5"/>
+            <text class="th" x="540" y="56" text-anchor="middle" dominant-baseline="central">第三部</text>
+            <text class="ts" x="540" y="78" text-anchor="middle" dominant-baseline="central">二つの政治の結びつけ</text>
+            <text class="ts" x="540" y="96" text-anchor="middle" dominant-baseline="central">← STEP 2〜4 の展開</text>
+          </g>
+        </g>
+
+        <text class="ts" x="340" y="140" text-anchor="middle" dominant-baseline="central">本書後半でさらに掘り下げられる三つの主題</text>
+
+        <g class="hot" data-desc="政治的情熱：STEP 5で提示されたフロイト的な比喩を使った議論が、本書後半でさらに深められる。情熱の『質』をどう変えるかという問題が具体的な政治分析のなかで展開される。">
+          <g class="c-purple">
+            <rect x="40" y="160" width="190" height="70" rx="10" stroke-width="0.5"/>
+            <text class="th" x="135" y="186" text-anchor="middle" dominant-baseline="central">政治的情熱</text>
+            <text class="ts" x="135" y="208" text-anchor="middle" dominant-baseline="central">← STEP 5 の展開</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="レイシズム批判：著者ハージの代名詞とも言える主題。これまでの著作（『White Nation』など）でオーストラリアの白人ナショナリズムを分析してきた議論が、本書でさらに展開される。">
+          <g class="c-purple">
+            <rect x="245" y="160" width="190" height="70" rx="10" stroke-width="0.5"/>
+            <text class="th" x="340" y="186" text-anchor="middle" dominant-baseline="central">レイシズム批判</text>
+            <text class="ts" x="340" y="208" text-anchor="middle" dominant-baseline="central">← STEP 6〜7 の展開</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="エコロジー政治：序章で初めて明示される主題。ただし冒頭の『人間でないものを取り巻く環境』という一節ですでに伏線として置かれていた。『別のあり方』の射程には、人間と非人間の関係も含まれる。">
+          <g class="c-purple">
+            <rect x="450" y="160" width="190" height="70" rx="10" stroke-width="0.5"/>
+            <text class="th" x="545" y="186" text-anchor="middle" dominant-baseline="central">エコロジー政治</text>
+            <text class="ts" x="545" y="208" text-anchor="middle" dominant-baseline="central">← 冒頭の伏線</text>
+          </g>
+        </g>
+
+        <g class="hot" data-desc="著者は序章を『新しい政治の可能性を探る』という言葉で締めくくる。本書は批判の書ではあるが、批判だけで終わる書ではない。批判的でありながら同時に構想的であるという姿勢こそ、著者が実践しようとしている『オルター・ポリティクスへの情熱』そのもの。">
+          <g class="c-gray">
+            <rect x="100" y="250" width="480" height="50" rx="10" stroke-width="0.5"/>
+            <text class="th" x="340" y="270" text-anchor="middle" dominant-baseline="central">結び</text>
+            <text class="ts" x="340" y="290" text-anchor="middle" dominant-baseline="central">新しい政治の可能性を探る</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ap-desc" data-default="図の要素に触れると、それぞれのパートで何が展開されるかが見られます。">図の要素に触れると、それぞれのパートで何が展開されるかが見られます。</div>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">序章は本書全体の縮小版</p>
+      <p class="ap-card-body">序章で提示された論点は、本論のどこかで必ず展開される。アンチ／オルターの対比は第三部、単一文化主義と入植者植民地主義の分析は第一部、政治的情熱は本書後半、エコロジー政治は後半、危機の経験は第二部。つまり序章を丁寧に読んでおけば、本書全体のどこで何が論じられるかの見当がつくように設計されている。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">結びの姿勢</p>
+      <p class="ap-card-body">著者は序章を「新しい政治の可能性を探る」という言葉で締めくくる。本書は批判の書ではあるが、批判だけで終わる書ではない。序章全体を貫く姿勢をひとことで言えば、「批判的でありながら、同時に構想的である」ということ。この姿勢こそが、著者が本書で実現しようとしている「別のあり方を模索する政治への情熱」の実践例になっている。</p>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">本書 pp.30-32 ／ 本書全体の構成予告</p>
+        <p>序章の締めくくりとして、著者は本書全体の見取り図を提示する。本書は四部・全11章で構成されている。各部には序章で提示された論点が割り当てられており、序章は本書全体の圧縮版として機能している。</p>
+        <p>第Ⅰ部（第1〜2章）の主題は「入植者状況のグローバル化」である。第1章では、社会編成に通底する被害妄想的・権威主義的な構造を、ネオリベラルな潮流との結びつきのなかで掘り下げる。第2章は、そうした環境において「危機の経験」がどう変容したかに焦点を当てる——危機が例外ではなく恒常的な袋小路となった現代の感覚を扱う。ブロック8で見たオーストラリア・イスラエル・西洋諸国をまたぐ共通構造が、ここで本格的に分析される。</p>
+        <p>第Ⅱ部（第3〜4章）は「批判的思考と批判的人類学」を扱う。第3章では人類学における「存在論的転回」の重要性を考察する。これは「私たちは、私たちがいまもそうであるものではない、何かになることができる」という洞察を核とする思想潮流で、別のあり方を模索する政治にとっての方法論的根拠となる。第4章では、批判的社会科学の再編を、とくにアラブ世界の社会変動という文脈に照らして論じる。</p>
+        <p>第Ⅲ部（第5〜6章）が、序章全体の中心的な問い——「政治的情熱」——の本格的な展開部となる。第5章は人類学者自身の政治的情熱という問題を扱う。第6章ではフランツ・ファノンの政治を「別のあり方を模索する政治の戦略」のひとつとして位置づけ、ネグリとハートの議論への批評を行う。ここでファノンが「アンチでありながらオルターでもある」思想家として再評価される。</p>
+        <p>第Ⅳ部（第7〜11章）は、別のあり方を模索する政治がどう実践されうるかを例示する論稿群である。第7・8章はイスラエルの植民地主義への対抗を扱う。第9章はエコロジー政治と存在論的転回の影響を受けた人類学的視点を絡める。序章冒頭の「人間でないもの」への言及は、ここで実を結ぶ。第10章は「現実主義的なユートピア」という概念を軸に、レイシズム批判に焦点を当てる。第11章は結論として、著者自身の中東とオーストラリアへの帰属経験から始め、一般的な「帰属のあり方」をめぐる別のあり方を模索する政治を、今日の世界を席巻している「領域主義（territorialism）」の有害な入植者的形態に対して投げかけたい、と締めくくられる。</p>
+        <p>序章の役割は、本書全体の圧縮版として機能することだ。序章で提示されたアンチ／オルターの対比は第Ⅲ部、入植者植民地主義の分析は第Ⅰ部、政治的情熱は第Ⅲ部、エコロジー政治は第9章、危機の経験は第2章、レイシズム批判は第10章。序章を丁寧に読んでおけば、本書全体のどこで何が論じられるかの見当がつくよう設計されている。</p>
+        <p>最後に注目したいのは、本書全体の終着点が「帰属のあり方」を「領域主義」に対して投げかけるという形で予告されていることだ。序章冒頭で宣言された「ありうべき別の経済、地球に暮らし関わりあう別のあり方、他者についての異なる思考と経験」という三つの探求すべき領域は、最終章で「帰属のあり方の組み換え」という具体的な政治的提案へと結実する。序章全体を貫く姿勢をひとことで言えば、「批判的でありながら、同時に構想的である」ということ。この姿勢こそが、著者が本書で実現しようとしている「別のあり方を模索する政治への情熱」の実践例になっている。</p>
+      </div>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>話す内容</h4>
+      <p>序章のあとに何が続くか、という見取り図を示すパート。議論の重さを少し和らげるセクションでもある。「序章は本書全体の縮小版として書かれていて、今日見てきた論点は全部、本論のどこかで展開される」と説明する。図を指しながら、『第一部で何、第二部で何、第三部で何』と一巡する。最後に『批判的でありながら、同時に構想的である』という著者の姿勢を強調する。</p>
+      <h4>参加者への投げかけ</h4>
+      <p>「本論で一番気になるパートはどこですか？」と軽く聞くと、次回以降の輪読への関心が湧く。</p>
+      <h4>想定質問と答え</h4>
+      <p><span class="q">Q.</span><span class="a">「第二部の『危機の経験』って、具体的にはどういうことですか？」</span></p>
+      <p><span class="q">A.</span><span class="a">序章ではあまり詳しく触れられていないので、私の推測も入りますが、9.11以降の『常時テロ警戒』みたいな感覚とか、気候変動、経済危機が重なり合って『危機』が日常化していることを扱うパートだと思います。本論を読まないと確かなことは分かりません。</span></p>
+      <p><span class="q">Q.</span><span class="a">「エコロジーの話が急に出てきた気がするんですが？」</span></p>
+      <p><span class="q">A.</span><span class="a">実は序章の冒頭で『人間でないものを取り巻く環境』という一節があって、そこが伏線になっています。著者の『別のあり方』の射程には、人間同士の関係だけじゃなく、人間と動物・植物・環境の関係も含まれる、ということですね。</span></p>
+      <h4>時間の目安</h4>
+      <p>5分。解説パートの締めくくり。重くなりすぎないように、でも『批判的でありながら構想的』という結びはしっかり伝える。ここが終わったら議論パート（残り15分）へ。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="8">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-d">議論</span>
+      <span class="ap-kicker">STEP 9 ／ 論点</span>
+    </div>
+    <h3 class="ap-h">議論してみたいこと</h3>
+    <p class="ap-body">序章の議論を踏まえて、論点を三つ挙げる。</p>
+    <ol class="ap-qlist">
+      <li>「抵抗の情熱」と「別のあり方を模索する情熱」は、本当に質が異なるのだろうか。著者は抽象的に語るが、具体例で考えるとどうか。</li>
+      <li>オーストラリアとイスラエル／パレスチナを「同じ植民地主義の構造」で並置する著者の操作は、説得力があるか。それとも違いを軽視しているように感じるか。</li>
+      <li>序章冒頭の「人間でないものを取り巻く環境」への言及や、後半で予告される「エコロジー政治」を踏まえると、著者の「別のあり方を模索する政治」は、人間同士の関係以外に何を含意しているだろうか。</li>
+    </ol>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 各論点の詳細解説を読む</button>
+      <div class="ap-detail-body">
+        <p class="src">議論を深めるための補助テキスト</p>
+        <p><strong>論点1：情熱の「質」の違い</strong>　著者は、抵抗の情熱と別のあり方を模索する情熱は質が違うと主張する。しかし序章の時点では、その違いは抽象的にしか語られていない。具体的にどう異なるのか、私たち自身の経験のなかで考えてみる必要がある。たとえばデモに参加するときの情熱と、自分の生活を変えて新しい実践を始めるときの情熱は、本当に違う種類のエネルギーだろうか。SNSで怒りを発信するエネルギーと、コミュニティで地道に活動するエネルギーは、同じ動機から来ているのだろうか。気候変動運動で言えば、「ノー・プラネットB」と叫ぶのはアンチ、有機農業や脱炭素ライフスタイルを実践するのはオルター。この二つは同じ「情熱」で動いているのか、それとも違う種類の情熱なのか。著者がフロイトの比喩で示したかったのは、おそらく「情熱を消す／注ぐ」という量の発想ではなく、「情熱とどう関係を結ぶか」という質の発想への転換だ。</p>
+        <p><strong>論点2：事例の並置の妥当性</strong>　著者はオーストラリアとイスラエル／パレスチナを「同じ植民地主義の構造」として並置する。この操作は説得力があるか、それとも違いを軽視していると感じるか。「イスラエルが西洋の模範になった」という挑発的な主張を、私たちはどう受け止めるべきか。この論点を深めるには、著者の主張内容そのものへの賛否ではなく、著者の方法論への評価として議論する方が建設的だ。「同じ構造で並置する」という操作自体が分析として有効かどうか、という問い方である。日本に当てはめて考えるなら、アイヌや琉球の歴史、在日朝鮮人や在日中国人への視線、戦時下の日系アメリカ人強制収容など、似た構造を持つ事例は複数ある。それらを「同じ枠組みで読む」ことは何を可能にし、何を見えなくするのか。</p>
+        <p><strong>論点3：エコロジー政治への伏線</strong>　序章冒頭の「人間でないものを取り巻く環境」という一節と、後半で予告される「エコロジー政治」を踏まえると、著者の「別のあり方を模索する政治」は人間同士の関係以外に何を含意しているのだろうか。これは現代的な視点だろうか、それとも著者の議論からは少し外れた延長線だろうか。近年の人類学では、ラトゥール、デスコラ、インゴルド、ヴィヴェイロス・デ・カストロといった理論家を中心に、人間中心主義を超えた政治の可能性が盛んに議論されている。著者もその潮流のなかに身を置いている。具体例としては、里山保全、アニマルウェルフェア、森に法的人格を認めるエクアドル憲法、ニュージーランドの川に法的人格を認めた法律など、実在の動きがある。「別のあり方を模索する政治」の射程に、こうした人間／非人間の関係の組み替えが含まれることは、ハージの議論を現代の環境思想にも開いていく鍵となる。</p>
+        <p><strong>三つの論点の相互関係</strong>　論点1は本書の核心を扱い、論点2は方法論、論点3は射程の広がりを扱っている。三つは独立しているように見えるが、根底ではつながっている。情熱の「質」を変える（論点1）ことなしに、入植者植民地主義の構造を超えた別の社会（論点2）を構想することはできない。そして、その別の社会を人間同士の関係だけに閉じず、人間と非人間の関係まで含めて構想する（論点3）ことが、著者の言うオルター・ポリティクスの最終的な射程である。</p>
+      </div>
+    </div>
+
+    <div class="ap-course">
+      <p class="ap-course-label">授業との接続</p>
+      <p class="ap-course-source">→ 文化人類学各論I 25-5 カーゴカルト</p>
+      <p class="ap-course-body">論点1（情熱の質の違い）と論点2（事例の並置）の両方に関わる接続として、先生のカーゴカルトの回を思い出した。先生はカーゴカルトの解釈として、Worsleyの「植民地状況への抵抗」「反植民地運動」という読み（アンチ・ポリティクス的読解）と、BurridgeやLawrenceの「文化的固有性」「創造的実践」「神話夢」という読み（オルター・ポリティクス的読解）の両方を紹介していた。同じ現象が、抵抗としても新しい現実の創出としても解釈されている——これはハージの「アンチとオルターは結びつけるべき」というテーゼの完璧な実例ではないか。さらに「逆写像：現地の人々によるヨーロッパ人の生活の解釈」という論点も、マルワーンの「シオニスト陰謀」発言の現代版と言える。</p>
+    </div>
+
+    <div class="ap-quote" style="margin-top: 1.5rem;">哲学者はこれまで世界を解釈してきただけだが、重要なのは世界を変えることである。<span class="ap-quote-cite">── 本文より（マルクス『フォイエルバッハ・テーゼ』第11テーゼ）</span></div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ（ディスカッション補助）</p>
+      <h4>運用方針（15分で論点2つ）</h4>
+      <p>解説で45分使うので、議論は15分しか取れない。3つの論点から<strong>2つを選んで</strong>進める。1論点あたり7分が目安。論点を選ぶ判断軸は以下。</p>
+      <ul>
+        <li><strong>論点1（情熱の質）</strong>は本書の核心なので、原則はずさない。</li>
+        <li><strong>論点2（事例の並置）</strong>は政治的にセンシティブだが、反応を見ながら入れる価値あり。クラスが議論慣れしていればこれを選ぶ。</li>
+        <li><strong>論点3（エコロジー）</strong>は面白いが序章本体からは少し派生している。時間が余ったら、または論点2を避けたい場合の代替として。</li>
+      </ul>
+      <p>迷ったら<strong>論点1＋論点2</strong>の組み合わせが推奨。論点3は「時間があれば」と前置きしておけば触れなくてもOK。</p>
+
+      <h4>進め方のテンプレート</h4>
+      <p>各論点で、<strong>問いを読み上げる（30秒）→ 自分の読みを共有する（1分）→ 参加者の意見を拾う（5分）→ 軽くまとめる（30秒）</strong>という7分の流れ。参加者に振ってから自分の読みを出すと誘導になりがちなので、先に自分の立場を短く提示してから開く方がスムーズ。</p>
+
+      <h4>論点1の深掘り：情熱の質の違い</h4>
+      <p>自分の読みの提示：「私は、抵抗の情熱と別のあり方の情熱は本当に質が違うと思う。たとえば怒ってデモに行くのと、自分の生活を変えて新しい実践を始めるのは、使っているエネルギーの種類が違う気がする。みなさんはどう思いますか？」</p>
+      <p>議論が止まったら：「たとえば気候変動運動で考えてみると、『ノー・プラネットB』って叫ぶのはアンチ、コミュニティで有機農業を実践するのはオルター。この二つって、同じ『情熱』で動いてると思いますか？それとも違う種類の情熱ですか？」と具体例に引き戻す。</p>
+      <p>別の切り口：「SNSでの怒りの発信と、自分の生活を変えることは、同じエネルギーでできますか？」という問いも効く。</p>
+
+      <h4>論点2の深掘り：事例の並置</h4>
+      <p>自分の読みの提示：「私は、著者の並置には強引なところもあるけれど、『入植者植民地』という理論的な共通点があるから成立していると思う。ただし『イスラエルが西洋の模範』という言い方は挑発的すぎて、そこだけ取り出すと荒れる気もする。みなさんは著者の並置をどう受け取りましたか？」</p>
+      <p>議論が止まったら：「著者はオーストラリアとイスラエルを並べるけれど、日本に当てはめると何と似ていますか？たとえばアイヌや琉球の歴史、在日コリアンへの態度……これは『入植者植民地』に近いですか、遠いですか？」と身近な文脈に引き寄せる。</p>
+      <p>注意：この論点は政治的にセンシティブ。『イスラエルが模範』という著者の主張だけを切り出して議論すると荒れる可能性があるので、『著者の方法論としてどうか』というレベルで議論を保つ。</p>
+
+      <h4>論点3の深掘り：エコロジー政治との接続（時間があれば）</h4>
+      <p>自分の読みの提示：「序章の冒頭に『人間でないもの』という言葉がさりげなく出てきて、それが後半のエコロジー政治の伏線になっている。つまり著者の『別のあり方』は人間同士の関係だけじゃなく、人間と環境の関係の組み替えも含んでいる。これって現代的だと思いますか？」</p>
+      <p>具体例として：里山保全、アニマルウェルフェア、森の権利運動（エクアドル憲法）など、実在の動きを挙げると議論が具体化する。</p>
+
+      <h4>締めくくり方（最後の1分）</h4>
+      <p>最後に第11テーゼを引いて、「著者自身がかつてこの言葉に強く共鳴して、今でもその精神を受け継いでいる。ただし『世界を変える』というときの『変える』の意味が変わってきている——解釈か変革かの二択ではなく、別のあり方を構想しそれに情熱を注ぐことそのものが変革なのだ、というメッセージを私は受け取りました」と自分なりの総括で閉じる。</p>
+
+      <h4>授業との接続：カーゴカルトを論点1・論点2の起爆剤に</h4>
+      <p>論点1か論点2の議論が止まったとき、または逆に火をつけたいときに、先生のカーゴカルトの回を持ち出すと議論が一気に動く。「論点1について考えるとき、先生のカーゴカルトの回を思い出しました。Worsleyは反植民地運動として読み、BurridgeやLawrenceは『神話夢』を通じた創造的実践として読んだ——同じ現象が抵抗としても新しい現実の創出としても解釈されている。ハージの言うアンチとオルターの『結びつけ』は、実はカーゴカルトのような場所では既に経験的に起きていたのかもしれません」と話す。先生の授業を踏まえた発言として、確実に響く。さらに「逆写像」の論点まで持っていければ、マルワーンとの接続も一気に示せる。</p>
+
+      <h4>時間オーバー対策</h4>
+      <p>時間を過ぎそうになったら、遠慮なく「この話は本論を読みながらまた議論しましょう」と切り上げる。輪読は次回以降もあるので、全部ここで決着をつけなくていい。</p>
+    </div>
+  </div>
+
+  <div class="ap-step hidden" data-step="9">
+    <div class="ap-meta">
+      <span class="ap-section ap-section-g">補遺</span>
+      <span class="ap-kicker">STEP 10 ／ 用語集</span>
+    </div>
+    <h3 class="ap-h">キーワード解説</h3>
+    <p class="ap-body">本書で鍵となる用語を、読書会で迷ったときに参照できる形で集めた。議論のなかで「あの言葉ってどういう意味だっけ？」となったときに、このページに戻ってくると便利。</p>
+
+    <div class="ap-card">
+      <p class="ap-card-title">アンチ・ポリティクス（anti-politics）</p>
+      <p class="ap-card-body">「抵抗の政治」。既存の秩序に「ノー」と言う政治のこと。反資本主義・反レイシズム・反植民地主義の闘争が典型。歴史的にラディカルな政治的情熱の主役だった。ただし著者は、抵抗だけでは「倒したあとに何を作るか」が不十分であると診断する。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">オルター・ポリティクス（alter-politics）</p>
+      <p class="ap-card-body">「別のあり方を模索する政治」。別の経済、別の共生のかたち、他者との別の関わり方を構想し、試みる政治のこと。本書のタイトルそのもの。抵抗と対立するものではなく、抵抗を「補う」位置にあるものとして提示される。著者はとくにこちらに力点を置く。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">政治的情熱</p>
+      <p class="ap-card-body">政治を動かす感情的なエネルギー。著者はこれを本書の鍵概念のひとつに据える。歴史的には抵抗の政治にばかり注がれてきたが、オルター・ポリティクスを支えるには「量」ではなく「質」の転換が必要だと主張する。「怒りや破壊」の情熱とは異なる、「構想し、育て、共に生きる」エネルギーへの転換。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">単一文化主義（mono-culturalism）</p>
+      <p class="ap-card-body">ひとつの文化（民族・宗教・言語）で社会を統一すべきだという発想。多文化主義の反対概念。著者がオーストラリアとイスラエル／パレスチナに共通する構造として見出した概念。クロヌラの白人群衆の「ここはオーストラリアだ」という叫びと、イスラエルの「ここはユダヤ人の国家だ」という主張は、表れ方は違うが同じ発想に根ざしている、というのが著者の診断。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">入植者植民地主義（settler colonialism）</p>
+      <p class="ap-card-body">単に領土を支配するだけの「搾取型植民地主義」と区別される植民地主義の一形態。先住者を「置き換える」ことを目指す点に特徴がある。オーストラリア、アメリカ、カナダ、ニュージーランド、イスラエルなどがこの類型に属する。著者がこれらの国々を並べて論じられる理論的根拠。パトリック・ウルフらの近年の植民地研究に由来する概念。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">批判的人類学</p>
+      <p class="ap-card-body">既存の社会秩序を問い直し、別のあり方を想像することを志向する人類学の潮流。著者が身を置く立場。単に異文化を記述するのではなく、「こうでしかあり得ない」という前提を揺さぶる営みとして自己定位している。本書でオルター・ポリティクスに力点が置かれる一つの理由は、この学問自体が「別のあり方を想像する」営みと親和的だから、と著者は述べる。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">クロヌラ暴動（Cronulla riots）</p>
+      <p class="ap-card-body">2005年12月11日、シドニー郊外のクロヌラ・ビーチで起きた大規模な人種暴動。数千人の白人の群衆が「中東系」と見なされた人々を襲撃した事件で、オーストラリア史上最大級の人種間暴動として記憶される。背景にはSMSやラジオを通じた組織的な扇動があった。著者はこの事件の直後にレバノン系オーストラリア人のマルワーンにインタビューし、そこから「単一文化主義」という分析概念を引き出す。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">想像力（imagination）</p>
+      <p class="ap-card-body">人類学と政治理論の交差領域で重要な分析概念。ベネディクト・アンダーソンの『想像の共同体』（1983年）以降、ナショナリズムは「人々が頭のなかで共有する想像」として分析されるようになった。著者は9.11以降の「敵の同一視」を、具体的な政策や制度ではなく、人々の政治的想像力のレベルで起きた変化として捉える。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">ガッサン・ハージ（Ghassan Hage）</p>
+      <p class="ap-card-body">本書の著者。レバノン系オーストラリアの人類学者。1957年生まれ。レバノンで生まれ育ち、オーストラリアに移住。1981年シドニーのマッコーリー大学大学院時代には自らを「ハードコアなマルクス主義者」と任じていた。代表作に『White Nation』（1998年）、『Against Paranoid Nationalism』（2003年）など。オーストラリアの白人ナショナリズムとパレスチナ問題を並行して論じてきたこの著者の経歴が、本書で二つの地域が並置される背景にある。</p>
+    </div>
+
+    <div class="ap-card">
+      <p class="ap-card-title">フロイト的構え</p>
+      <p class="ap-card-body">著者が政治的情熱を論じる際に援用する思考法。フロイトはセクシュアリティを「消去すべきもの」ではなく「人間存在に常に伴うもので、どう付き合うかが問題」として捉え直した。著者はこの構えをそのまま政治的情熱に持ち込む。近代政治思想の前提である「理性 vs 情熱」という対立そのものを疑うための道具として機能している。</p>
+    </div>
+
+    <div class="ap-detail">
+      <button class="ap-detail-toggle"><span class="arrow">▶</span> 用語のさらなる解説と相互関係</button>
+      <div class="ap-detail-body">
+        <p class="src">キーワードの背景と理論的関係</p>
+        <p><strong>「アンチ／オルター」の対比はどこから来たのか</strong>　この区別は著者ハージ独自の概念整理だが、背景には20世紀後半の左翼思想の自己反省がある。1960年代以降、ソ連型社会主義の限界や反植民地闘争の挫折が次第に明らかになり、「倒すこと」と「作ること」の関係が問い直されるようになった。ハージはこの長い反省の伝統を引き継ぎつつ、「アンチ・ポリティクス」と「オルター・ポリティクス」という対比のかたちで整理し直した。両者を別の概念として並べることで、それぞれに別の情熱の質が必要だ、と論じる土台ができている。</p>
+        <p><strong>「単一文化主義」という言葉の射程</strong>　この概念は単に「ひとつの民族で社会を統一すべき」という極端な主張だけを指すわけではない。著者の用法では、もっと広い意味で「自分たちの文化を脅かす他者がいる」という被害妄想的な自己規定全般を含む。だからこそ、自覚的な人種差別主義者だけでなく、「合理的な安全保障上の懸念」という穏当な言葉づかいの背後にも単一文化主義は潜んでいる、と著者は診断する。前著『Against Paranoid Nationalism』のキー概念「パラノイア・ナショナリズム」とほぼ重なる射程を持つ。</p>
+        <p><strong>「入植者植民地主義」と従来の植民地主義の違い</strong>　通常の植民地主義は、本国が植民地から資源や労働力を搾取することを目的とする。しかし入植者植民地主義は、本国の人々が植民地に「移り住む」こと、そして先住者を「置き換える」ことを目的とする。だから両者は構造がまったく違う。撤退と独立で終わる搾取型植民地主義に対して、入植者植民地主義は撤退できない——入植者がすでにそこに住み着いているからだ。この違いが、著者がオーストラリアやイスラエルを並置する理論的根拠になっている。パトリック・ウルフ、ロレンツォ・ヴェラチーニといった研究者が近年この概念を発展させてきた。</p>
+        <p><strong>「後期入植者状況のグローバル化」とは何か</strong>　著者ハージが本書で打ち出す独自の概念。入植者植民地主義的な構造——「敵に包囲されているから自己主張する必要がある」というエートス——が、20世紀末以降、特定の入植者植民地国家の枠を超えて、西洋全体の自己規定として広がっていく事態を指す。9・11以降、ヨーロッパ諸国もイスラエルやオーストラリアと同じような「包囲されている自己」というエートスを共有するようになった、というのが著者の診断である。本書第Ⅰ部の中心概念。</p>
+        <p><strong>「政治的情熱」の背景にある思想史</strong>　政治と感情の関係を問う議論は、近代政治思想のなかでは長い歴史を持つ。スピノザ、ヒューム、ニーチェ、フロイト、マルクーゼ、ジジェクといった思想家たちが、それぞれの仕方で「情熱なき政治はあり得ない」と論じてきた。著者ハージはこの系譜のなかに身を置きつつ、「情熱の質を変える」という独自の論点を持ち込んでいる。著者の貢献は、情熱を消すか注ぐかという二項対立を超えて、「情熱との関係そのものを変える」という第三の道を提示したことにある。</p>
+        <p><strong>「批判的人類学」と「存在論的転回」の関係</strong>　批判的人類学は、人類学のなかで既存の社会秩序を相対化することを目指す潮流である。これは1980年代以降の「ライティング・カルチャー・ショック」を経て、人類学が自己反省的になっていくなかで形成された立場だ。一方「存在論的転回」は2000年代以降に台頭した、人間中心主義を超えて「存在のあり方」そのものを問い直す動きである。著者は両者の合流点に立ち、「別のあり方を模索する」ことを学問的にも政治的にも追求している。本書の方法論的な背景としてこの二つは重要。</p>
+      </div>
+    </div>
+
+    <div class="ap-presenter">
+      <p class="ap-presenter-label">発表者メモ</p>
+      <h4>使い方</h4>
+      <p>このページは発表中に参照するリファレンス。議論のなかで「あの言葉ってどういう意味だっけ？」となったら、上部のドットから STEP 10 に飛んで確認できる。または参加者に「気になったら後で見てください」と案内しておけば、各自の手元で参照してもらえる。</p>
+      <h4>発表本番では</h4>
+      <p>時間が足りなくなりがちなので、このページは軽く紹介するか、スキップして「あとで参考に」と案内するだけでもOK。用語集はあくまで補助資料。</p>
+    </div>
+  </div>
+
+  <div class="ap-nav">
+    <button id="ap-prev" onclick="apPrev()">← 前へ</button>
+    <button id="ap-next" onclick="apNext()">次へ →</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var current = 0;
+  var total = 10;
+  var steps = document.querySelectorAll('.ap-step');
+  var dots = document.querySelectorAll('.ap-dot');
+  var counter = document.getElementById('ap-counter');
+  var prevBtn = document.getElementById('ap-prev');
+  var nextBtn = document.getElementById('ap-next');
+
+  function render() {
+    steps.forEach(function(s, i){ s.classList.toggle('hidden', i !== current); });
+    dots.forEach(function(d, i){
+      d.classList.remove('active', 'done');
+      if (i < current) d.classList.add('done');
+      else if (i === current) d.classList.add('active');
+    });
+    counter.textContent = (current + 1) + ' / ' + total;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    prevBtn.style.opacity = current === 0 ? '0.4' : '1';
+    nextBtn.style.opacity = current === total - 1 ? '0.4' : '1';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  window.apPrev = function(){ if (current > 0) { current--; render(); } };
+  window.apNext = function(){ if (current < total - 1) { current++; render(); } };
+  window.togglePresenter = function(){
+    document.body.classList.toggle('presenter-on');
+  };
+
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ current = parseInt(d.dataset.step, 10); render(); });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') window.apPrev();
+    if (e.key === 'ArrowRight') window.apNext();
+    if (e.shiftKey && (e.key === 'P' || e.key === 'p')) {
+      e.preventDefault();
+      window.togglePresenter();
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.ap-detail-toggle');
+    if (btn) {
+      var detail = btn.closest('.ap-detail');
+      if (detail) detail.classList.toggle('open');
+    }
+  });
+
+  document.querySelectorAll('.ap-fig').forEach(function(fig){
+    var desc = fig.querySelector('.ap-desc');
+    if (!desc) return;
+    var def = desc.getAttribute('data-default') || desc.textContent;
+    fig.querySelectorAll('.hot').forEach(function(hot){
+      var text = hot.getAttribute('data-desc');
+      if (!text) return;
+      hot.addEventListener('mouseenter', function(){ desc.textContent = text; });
+      hot.addEventListener('mouseleave', function(){ desc.textContent = def; });
+      hot.addEventListener('click', function(){ desc.textContent = text; });
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
